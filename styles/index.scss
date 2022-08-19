@@ -1,8 +1,23 @@
+@font-face {
+  font-family: 'Dubai Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Dubai Regular'), url('/public/fonts/Dubai-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Dubai Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Dubai Bold'), url('/public/fonts/Dubai-Bold.woff') format('woff');
+}
+
 /* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Dubai-Regular', Arial, sans-serif;
 }
 
 /* Remove default margin */
@@ -34,7 +49,7 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  line-height: 1.56;
 }
 
 /* A elements that don't have a class get default styles */
