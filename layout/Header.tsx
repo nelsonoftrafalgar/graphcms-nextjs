@@ -2,11 +2,13 @@ import HeaderNav from 'layout/HeaderNav'
 import Image from 'next/image'
 import Link from 'next/link'
 import MobileNav from 'layout/MobileNav'
+import classnames from 'classnames'
 import styles from 'styles/layout/Header.module.scss'
+import stylesShared from 'styles/Shared.module.scss'
 
 const Header = () => {
   return (
-    <header className={styles.header}>
+    <header className={classnames(styles.header, stylesShared.container)}>
       <Link href="/">
         <a>
           <div className={styles.logo_container}>

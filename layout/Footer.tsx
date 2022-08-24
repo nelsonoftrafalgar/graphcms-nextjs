@@ -2,10 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { footerMenuData } from 'utils/footerMenuData'
 import styles from 'styles/layout/Footer.module.scss'
+import stylesShared from 'styles/Shared.module.scss'
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={stylesShared.container}>
       <div className={styles.footer_wrapper}>
         <div className={styles.item}>
           <Link href="/">

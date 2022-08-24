@@ -25,4 +25,15 @@
     color: colors.$light;
     background: colors.$pink;
   }
+
+  &.transparent {
+    color: colors.$light;
+    background: colors.$transparent;
+    border: 2px solid colors.$light;
+
+    &:hover {
+      background: colors.$light;
+      color: colors.$purple;
+    }
+  }
 }
