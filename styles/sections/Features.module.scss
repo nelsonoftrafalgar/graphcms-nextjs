@@ -1,0 +1,41 @@
+@use 'styles/mixins';
+@use 'styles/colors';
+@use 'styles/fonts';
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  gap: 1.5rem;
+  margin: 4rem auto;
+
+  @include mixins.sm {
+    gap: 3.5rem 1.5rem;
+  }
+}
+
+.feature {
+  min-height: 9rem;
+  display: grid;
+  grid-template-columns: 3.64rem auto;
+  gap: 1.5rem;
+  padding: 0 0.93rem;
+}
+
+.icon {
+  width: 3.64rem;
+  height: 3.64rem;
+  border-radius: 3.12rem;
+  background: colors.$pink;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 1.11rem;
+  margin-bottom: 0.56rem;
+  font-family: fonts.$bold;
+}
+
+.content {
+  font-size: 0.89rem;
+}
