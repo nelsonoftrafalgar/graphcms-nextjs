@@ -1,0 +1,105 @@
+@use '/styles/colors';
+@use '/styles/mixins';
+
+.nav {
+  display: flex;
+  margin-left: auto;
+  display: none;
+
+  @include mixins.lg {
+    display: flex;
+  }
+}
+
+.nav_list {
+  align-self: center;
+  display: flex;
+}
+
+.nav_item {
+  margin-right: 2rem;
+  display: flex;
+  position: relative;
+  padding: 0.5rem 0;
+
+  &:hover,
+  &:focus-within {
+    &:before {
+      opacity: 1;
+      width: 100%;
+    }
+
+    .subnav_list {
+      display: block;
+    }
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    border-radius: 4px;
+    background: colors.$pink;
+    opacity: 0;
+    transition: 0.3s ease-out;
+  }
+
+  &.active {
+    &:before {
+      content: '';
+      display: block;
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      opacity: 1;
+      border-radius: 4px;
+      background: colors.$pink;
+      transition: 0.3s ease-out;
+    }
+  }
+}
+
+.icon_wrapper {
+  margin-left: 0.5rem;
+  position: relative;
+  display: flex;
+}
+
+.subnav_list {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  left: -1.25rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: colors.$box-shadow;
+}
+
+.subnav_item {
+  padding: 0.62rem 1.25rem;
+  font-size: 0.9rem;
+  min-width: 7.5rem;
+  position: relative;
+
+  .item_marker {
+    background-color: colors.$pink;
+    width: 5px;
+    height: 5px;
+    border-radius: 3.12rem;
+    position: absolute;
+    left: 0.62rem;
+    top: 1.25rem;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid colors.$subnav_divider;
+  }
+
+  &:hover {
+    background-color: colors.$subnav_item_hover;
+  }
+}

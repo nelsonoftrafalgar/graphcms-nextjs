@@ -1,0 +1,28 @@
+@use '/styles/colors';
+
+.button_link {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  display: inline-block;
+
+  &:hover {
+    transform: scale(1.07, 1.07);
+  }
+
+  &.small {
+    padding: 0.84rem 1.1rem;
+    border-radius: 10px;
+    font-size: 0.89rem;
+  }
+
+  &.large {
+    padding: 0.91rem 1.36rem;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  &.filled {
+    color: colors.$light;
+    background: colors.$pink;
+  }
+}

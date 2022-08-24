@@ -1,0 +1,22 @@
+@use '/styles/colors';
+@use '/styles/mixins';
+
+.header {
+  height: 5.4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo_container {
+  width: 6.7rem;
+  height: 100%;
+  position: relative;
+
+  @include mixins.sm {
+    width: 14rem;
+  }
+
+  @include mixins.lg {
+    width: 16.7rem;
+  }
+}
