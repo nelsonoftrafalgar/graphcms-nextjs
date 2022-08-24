@@ -1,12 +1,7 @@
 import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <main>main</main>
-      <footer>footer</footer>
-    </>
-  )
+  return <main>main</main>
 }
 
 export default Home

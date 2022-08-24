@@ -1,0 +1,101 @@
+@use '/styles/mixins';
+@use '/styles/colors';
+
+.footer_wrapper {
+  padding: 6rem 0 3.89rem 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+
+  grid-template-areas:
+    'a a a a a a'
+    'b b b c c c'
+    'd d d d d d';
+
+  @include mixins.md {
+    grid-template-areas:
+      'a a a a a a'
+      'b b c c d d';
+  }
+
+  @include mixins.xl {
+    grid-template-areas: 'a a b c d d';
+  }
+}
+
+$items: a, b, c, d;
+
+@for $i from 1 through length($items) {
+  .item:nth-child(#{$i}) {
+    grid-area: nth($items, $i);
+  }
+}
+
+.item {
+  min-height: 12.5rem;
+}
+
+.logo_container {
+  width: 11.6rem;
+  height: 2rem;
+  position: relative;
+}
+
+.social_logo_container {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.social_logo {
+  display: flex;
+  justify-content: center;
+  width: 2.73rem;
+  height: 2.73rem;
+  border: 1px solid colors.$grey;
+  border-radius: 3.12rem;
+  pad: 1rem;
+
+  &:first-child {
+    margin-right: 0.7rem;
+  }
+}
+
+.links_title {
+  font-size: 1.22rem;
+  margin-bottom: 1.11rem;
+}
+
+.link {
+  margin-bottom: 0.5rem;
+}
+
+.subfooter {
+  border-top: 1px solid colors.$grey;
+  width: 100%;
+  height: 8rem;
+  font-size: 0.89rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem 0;
+
+  @include mixins.md {
+    margin: 2rem 0 3rem 0;
+    height: 6rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+.subfooter_item {
+  margin: 0.5rem 0;
+
+  a {
+    margin: 0 2.22rem 0 0;
+
+    @include mixins.md {
+      margin: 0 0 0 2.22rem;
+    }
+  }
+}
