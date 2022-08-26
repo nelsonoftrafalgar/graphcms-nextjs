@@ -1,0 +1,43 @@
+@use 'styles/fonts';
+@use 'styles/mixins';
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  margin: 3rem 0 5rem 0;
+
+  @include mixins.md {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 6rem 0 10rem 0;
+  }
+}
+
+.title {
+  font-size: 1.78rem;
+  font-family: fonts.$bold;
+  line-height: 1.14;
+  margin-bottom: 1.5rem;
+
+  @include mixins.md {
+    font-size: 2.44rem;
+    margin-bottom: 3.5rem;
+  }
+
+  @include mixins.lg {
+    font-size: 3.11rem;
+  }
+}
+
+.content {
+  margin-bottom: 1.5rem;
+}
+
+.image {
+  position: relative;
+  height: 25rem;
+
+  @include mixins.md {
+    height: 100%;
+  }
+}
