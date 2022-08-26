@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import HeaderNav from 'layout/HeaderNav'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -6,9 +7,13 @@ import classnames from 'classnames'
 import styles from 'styles/layout/Header.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
-const Header = () => {
+interface IProps {
+  scroll: boolean
+}
+
+const Header: FC<IProps> = ({ scroll }) => {
   return (
-    <header className={classnames(styles.header, stylesShared.container)}>
+    <header className={classnames(styles.header, stylesShared.container, { [styles.scrolled]: scroll })}>
       <Link href="/">
         <a>
           <div className={styles.logo_container}>

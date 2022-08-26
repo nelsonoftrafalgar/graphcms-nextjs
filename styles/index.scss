@@ -89,3 +89,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+.prevent_scroll {
+  overflow: hidden;
+}

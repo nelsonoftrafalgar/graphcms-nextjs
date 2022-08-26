@@ -5,11 +5,15 @@ export const useMobileNav = () => {
   const [isNavOpen, toggleNav] = useState(false)
 
   useEffect(() => {
+    const body = document.querySelector('body')
+
     if (isNavOpen) {
+      body?.classList.add('prevent_scroll')
       setTimeout(() => {
         setAnimate(true)
       }, 100)
     } else {
+      body?.classList.remove('prevent_scroll')
       setAnimate(false)
     }
   }, [isNavOpen])

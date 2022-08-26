@@ -5,6 +5,10 @@
   height: 5.4rem;
   display: flex;
   justify-content: space-between;
+
+  &.scrolled {
+    height: 4rem;
+  }
 }
 
 .logo_container {
