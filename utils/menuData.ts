@@ -25,8 +25,8 @@ export const menuData: IMenuItem[] = [
         active: false
       },
       {
-        href: '/services',
-        title: 'Services',
+        href: '/service',
+        title: 'Service',
         active: false
       }
     ]

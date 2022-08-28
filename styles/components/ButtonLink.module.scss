@@ -36,4 +36,15 @@
       color: colors.$purple;
     }
   }
+
+  &.transparent_color {
+    color: colors.$pink;
+    background: colors.$transparent;
+    border: 2px solid colors.$pink;
+
+    &:hover {
+      background: colors.$pink;
+      color: colors.$light;
+    }
+  }
 }
