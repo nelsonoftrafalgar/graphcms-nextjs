@@ -1,7 +1,14 @@
+import Demo from 'sections/Demo'
+import FAQ from 'sections/FAQ'
 import React from 'react'
 
 const Pricing = () => {
-  return <div>pricing</div>
+  return (
+    <main>
+      <FAQ />
+      <Demo />
+    </main>
+  )
 }
 
 export default Pricing

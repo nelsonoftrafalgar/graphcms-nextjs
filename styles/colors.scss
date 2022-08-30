@@ -4,7 +4,9 @@ $light: #ffffff;
 $pink: #ee4498;
 $grey: #ccc;
 $grey_dark: #666;
-$subnav_item_hover: #f2f2f2;
+$grey_light: #f2f2f2;
+$subnav_item_hover: $grey_light;
+$accordion_focus: $grey_light;
 
 $transparent: transparent;
 

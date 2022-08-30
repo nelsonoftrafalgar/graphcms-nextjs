@@ -1,0 +1,55 @@
+@use 'styles/mixins';
+@use 'styles/colors';
+
+.item {
+  overflow: hidden;
+  max-height: 5.57rem;
+  transition: max-height 0.3s ease-in-out;
+  &:not(:last-child) {
+    border-bottom: 1px solid colors.$grey;
+  }
+
+  &.open {
+    max-height: 500px;
+  }
+}
+
+.button {
+  width: 100%;
+  background: colors.$transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.56rem;
+  color: colors.$purple;
+  font-size: 1.22rem;
+  cursor: pointer;
+  text-align: start;
+
+  span {
+    flex-shrink: 4;
+    padding-right: 2rem;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background: colors.$accordion_focus;
+  }
+}
+
+.content {
+  margin: 1rem 0 2rem 0;
+
+  @include mixins.sm {
+    margin: 0 0 2rem 0;
+  }
+}
+
+.icon_wrapper {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease-in-out;
+  &.open {
+    transform: rotateX(180deg);
+  }
+}
