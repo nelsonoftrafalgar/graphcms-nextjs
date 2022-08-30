@@ -7,7 +7,7 @@
   text-align: center;
   font-size: 1.33rem;
   line-height: 1.14;
-  margin: 3rem auto;
+  margin: 4rem auto;
   position: relative;
   padding: 0 1.56rem 2rem 1.56rem;
 
@@ -20,6 +20,7 @@
   }
 
   @include mixins.lg {
+    margin: 5rem auto;
     font-size: 1.56rem;
   }
 

@@ -1,0 +1,220 @@
+@use '/styles/colors';
+@use '/styles/mixins';
+@use 'styles/fonts';
+
+.heading_small {
+  text-align: center;
+  font-size: 1.22rem;
+  margin: 4rem 0 2rem 0;
+}
+
+.heading {
+  font-family: fonts.$bold;
+  text-align: center;
+  font-size: 1.78rem;
+  line-height: 1.14;
+  margin: 0 auto 5rem auto;
+  position: relative;
+  padding: 0 1.56rem 2rem 1.56rem;
+
+  @include mixins.sm {
+    width: 34.4rem;
+  }
+
+  @include mixins.md {
+    font-size: 2.44rem;
+  }
+
+  @include mixins.lg {
+    font-size: 3.11rem;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    background: colors.$pink;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 1rem 0;
+
+  @include mixins.lg {
+    padding: 0 4rem;
+    flex-direction: row;
+  }
+}
+
+.list {
+  background: colors.$pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+
+  @include mixins.lg {
+    height: 50.7rem;
+    width: 50%;
+  }
+}
+
+.list_item {
+  margin: 1rem 0;
+
+  button {
+    color: colors.$light;
+    background: colors.$transparent;
+    font-size: 1.56rem;
+    text-align: start;
+  }
+}
+
+.view {
+  width: 100%;
+
+  @include mixins.lg {
+    position: relative;
+    width: 50%;
+    height: 50.7rem;
+  }
+}
+
+.picker {
+  width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: colors.$box_shadow;
+  background: colors.$light;
+  top: -1.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  .title {
+    font-size: 1.56rem;
+    margin: auto 0 1.5rem 0;
+
+    @include mixins.md {
+      font-size: 2rem;
+    }
+
+    @include mixins.lg {
+      font-size: 2.44rem;
+    }
+  }
+
+  @include mixins.lg {
+    position: absolute;
+    max-width: 35.7rem;
+    height: 38.7rem;
+    width: calc(40vw + 15%);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.icons {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(7rem, 100%), 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0 2rem 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+
+  @include mixins.lg {
+    &:not(:last-child) {
+      border-right: 1px solid colors.$grey;
+    }
+  }
+}
+
+.icon_wrapper {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid colors.$pink;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.6rem;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mixins.lg {
+    margin-top: auto;
+  }
+}
+
+.dots {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  flex-shrink: 2;
+}
+
+.dot {
+  border-radius: 50%;
+  background: colors.$grey;
+  width: 10px;
+  height: 10px;
+  margin-right: 0.5rem;
+
+  &:not(.active) {
+    cursor: pointer;
+  }
+
+  &.active {
+    background: colors.$pink;
+  }
+
+  &:not(.active):hover {
+    background: colors.$grey_dark;
+  }
+}
+
+.arrows {
+  display: flex;
+  align-items: center;
+  width: 4rem;
+
+  button {
+    background: colors.$transparent;
+    cursor: pointer;
+  }
+}
+
+.arrow {
+  opacity: 0.3;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.point {
+  border-radius: 50%;
+  background: colors.$grey;
+  width: 5px;
+  height: 5px;
+  margin: 0 0.5rem;
+}
