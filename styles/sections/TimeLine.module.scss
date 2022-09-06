@@ -1,0 +1,261 @@
+@use 'styles/mixins';
+@use 'styles/colors';
+@use 'styles/fonts';
+
+.heading_small {
+  text-align: center;
+  font-size: 1.22rem;
+  margin: 4rem 0 2rem 0;
+}
+
+.heading {
+  font-family: fonts.$bold;
+  text-align: center;
+  font-size: 1.78rem;
+  line-height: 1.14;
+  margin: 0 auto 5rem auto;
+  position: relative;
+  padding: 0 1.56rem 2rem 1.56rem;
+
+  @include mixins.sm {
+    width: 34.4rem;
+  }
+
+  @include mixins.md {
+    font-size: 2.44rem;
+  }
+
+  @include mixins.lg {
+    font-size: 3.11rem;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    background: colors.$pink;
+  }
+}
+
+.container {
+  background: colors.$grey_light;
+  padding: 2rem 0;
+
+  @include mixins.sm {
+    padding: 5rem 0;
+  }
+}
+
+.timeline {
+  padding: 2rem 0;
+  position: relative;
+}
+
+.line {
+  background: colors.$grey;
+  position: absolute;
+  width: 4px;
+  left: 50%;
+  top: 5px;
+  bottom: 5px;
+  border-radius: 4px;
+  transform: translateX(-50%);
+  display: none;
+
+  @include mixins.sm {
+    display: block;
+  }
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 1.5rem;
+
+  @include mixins.sm {
+    margin: 0 1.5rem;
+    grid-template-columns: 1fr 80px 1fr;
+  }
+}
+
+.description {
+  position: relative;
+  background: colors.$light;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: colors.$box_shadow;
+  z-index: 0;
+
+  @include mixins.md {
+    display: grid;
+    align-items: unset;
+  }
+
+  &.left {
+    @include mixins.md {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+
+  &.right {
+    @include mixins.md {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+}
+
+.pointer {
+  width: 2rem;
+  height: 2rem;
+  background: colors.$light;
+  position: absolute;
+  top: 50%;
+  z-index: -1;
+  display: none;
+
+  @include mixins.sm {
+    display: block;
+  }
+
+  &.right {
+    right: 0;
+    transform: translate(20%, -50%) rotate(45deg);
+  }
+
+  &.left {
+    left: 0;
+    transform: translate(-20%, -50%) rotate(45deg);
+  }
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.image {
+  position: relative;
+  margin: 1rem;
+  height: 10rem;
+  width: 9rem;
+
+  @include mixins.md {
+    margin: 0 1rem;
+    height: auto;
+    width: auto;
+  }
+}
+
+.point {
+  align-items: center;
+  justify-content: center;
+  display: none;
+
+  @include mixins.sm {
+    display: flex;
+  }
+}
+
+.outer {
+  width: 30px;
+  height: 30px;
+  background: colors.$pink;
+  border: 5px solid colors.$light;
+  border-radius: 50%;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: colors.$light;
+  }
+}
+
+.date {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+
+  @include mixins.sm {
+    display: none;
+  }
+
+  span {
+    color: colors.$light;
+    background: colors.$pink;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+.year {
+  position: relative;
+  display: none;
+
+  @include mixins.sm {
+    display: block;
+  }
+
+  .year_left {
+    padding: 0.3rem 0.5rem;
+    color: colors.$light;
+    background: colors.$pink;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border-radius: 5px;
+
+    &:before {
+      content: '';
+      display: block;
+      height: 12px;
+      width: 12px;
+      position: absolute;
+      background: colors.$pink;
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%) rotate(45deg);
+      border-radius: 2px;
+    }
+  }
+
+  .year_right {
+    padding: 0.3rem 0.5rem;
+    color: colors.$light;
+    background: colors.$pink;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    border-radius: 5px;
+
+    &:before {
+      content: '';
+      display: block;
+      height: 12px;
+      width: 12px;
+      position: absolute;
+      background: colors.$pink;
+      top: 50%;
+      right: 0;
+      transform: translate(50%, -50%) rotate(45deg);
+      border-radius: 2px;
+    }
+  }
+}
