@@ -1,0 +1,60 @@
+@use 'styles/colors';
+
+.label {
+  position: relative;
+
+  &.content {
+    font-weight: 600;
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+.input {
+  padding: 1.5rem 1rem;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid colors.$input_border;
+  box-shadow: colors.$box_shadow;
+  color: colors.$purple;
+  margin: 0 0 1.7rem 0;
+  font-weight: 400;
+
+  &.with_label {
+    margin: 0.7rem 0 1.7rem 0;
+    padding: 1rem;
+  }
+
+  &::placeholder {
+    opacity: 1;
+  }
+
+  &:hover {
+    box-shadow: colors.$input_hover_box_shadow;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: colors.$pink;
+  }
+
+  &.error {
+    border: 2px solid colors.$pink;
+  }
+}
+
+.error_message {
+  position: absolute;
+  left: 1rem;
+  top: 1.87rem;
+  background: colors.$pink;
+  color: colors.$light;
+  border-radius: 5px;
+  padding: 1px 10px;
+  font-size: 0.9rem;
+
+  &.with_label {
+    top: unset;
+    bottom: 0.87rem;
+  }
+}

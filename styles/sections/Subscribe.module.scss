@@ -1,0 +1,45 @@
+@use 'styles/colors';
+@use 'styles/mixins';
+@use 'styles/fonts';
+
+.wrapper {
+  padding: 2rem 0;
+
+  @include mixins.sm {
+    padding: 5rem 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+
+  @include mixins.md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.title {
+  font-family: fonts.$bold;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  span {
+    color: colors.$pink;
+  }
+
+  @include mixins.sm {
+    font-size: 1.56rem;
+  }
+}
+
+.heading {
+  font-family: fonts.$bold;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+
+  @include mixins.sm {
+    font-size: 1.56rem;
+  }
+}

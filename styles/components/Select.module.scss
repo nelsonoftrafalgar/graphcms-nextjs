@@ -1,0 +1,10 @@
+@use 'styles/colors';
+
+.select {
+  appearance: none;
+  background-image: url('/icons/select_chevron.svg');
+  background-size: 0.7rem;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1rem) center;
+  background-color: colors.$light;
+}

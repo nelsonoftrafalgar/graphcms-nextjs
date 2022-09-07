@@ -84,7 +84,7 @@ const MobileNav = () => {
               })}
             </ul>
             <div className={styles.button_link_wrapper}>
-              <ButtonLink href="/" modifiers={['small', 'filled']}>
+              <ButtonLink href="/subscribe" modifiers={['small', 'filled']}>
                 Buy Now
               </ButtonLink>
             </div>

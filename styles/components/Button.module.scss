@@ -1,0 +1,16 @@
+@use 'styles/colors';
+
+.submit {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  text-align: center;
+  padding: 0.91rem 1.36rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: colors.$light;
+  background: colors.$pink;
+
+  &:hover {
+    transform: scale(1.07, 1.07);
+  }
+}
