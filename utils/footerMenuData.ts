@@ -3,8 +3,7 @@ export const footerMenuData = [
     title: 'DataLexing',
     links: [
       { title: 'Home', href: '/' },
-      { title: 'About Us', href: '/about-us' },
-      { title: 'Career', href: '/career' }
+      { title: 'About Us', href: '/about-us' }
     ]
   },
   {

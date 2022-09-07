@@ -49,11 +49,6 @@ export const menuData: IMenuItem[] = [
         href: '/contact-us',
         title: 'Contact Us',
         active: false
-      },
-      {
-        href: '/career',
-        title: 'Career',
-        active: false
       }
     ]
   }
