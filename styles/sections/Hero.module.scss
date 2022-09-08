@@ -5,11 +5,9 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  margin: 3rem 0 5rem 0;
 
   @include mixins.md {
     grid-template-columns: repeat(2, 1fr);
-    margin: 6rem 0 10rem 0;
   }
 }
 

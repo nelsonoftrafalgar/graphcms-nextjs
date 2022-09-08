@@ -8,7 +8,7 @@ import stylesShared from 'styles/Shared.module.scss'
 
 const Visualising = () => {
   return (
-    <section>
+    <section className={stylesShared.section_spacing}>
       <Heading
         justify="center"
         h1="With Lexer, you need zero technical skills to start visualizing all of your data in real-time."

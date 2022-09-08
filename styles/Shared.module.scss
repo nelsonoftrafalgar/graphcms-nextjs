@@ -1,5 +1,17 @@
+@use '/styles/mixins';
+
 .container {
   width: min(100%, 1186px);
   margin-inline: auto;
   padding-inline: 1.56rem;
+}
+
+.section_spacing {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+
+  @include mixins.md {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
 }

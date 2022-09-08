@@ -7,7 +7,7 @@ import stylesShared from 'styles/Shared.module.scss'
 
 const Decisions = () => {
   return (
-    <section className={stylesShared.container}>
+    <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
       <Heading justify="center" p="Why DataLexing?" h2="Make the right decision at the right time" />
       <div className={styles.cards}>
         <div className={styles.card}>

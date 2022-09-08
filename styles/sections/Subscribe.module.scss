@@ -2,14 +2,6 @@
 @use 'styles/mixins';
 @use 'styles/fonts';
 
-.wrapper {
-  padding: 2rem 0;
-
-  @include mixins.sm {
-    padding: 5rem 0;
-  }
-}
-
 .grid {
   display: grid;
   grid-template-columns: 1fr;

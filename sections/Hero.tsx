@@ -1,12 +1,13 @@
 import ButtonLink from 'components/ButtonLink'
 import Image from 'next/image'
+import classnames from 'classnames'
 import styles from 'styles/sections/Hero.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
 const Hero = () => {
   return (
     <section className={stylesShared.container}>
-      <div className={styles.container}>
+      <div className={classnames(styles.container, stylesShared.section_spacing)}>
         <div>
           <h1 className={styles.title}>Turn Projects That Take Weeks, to Tasks That Takes Minutes!</h1>
           <p className={styles.content}>

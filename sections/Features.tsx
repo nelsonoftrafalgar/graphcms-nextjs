@@ -5,7 +5,7 @@ import stylesShared from 'styles/Shared.module.scss'
 
 const Features = () => {
   return (
-    <section className={classnames(styles.features, stylesShared.container)}>
+    <section className={classnames(styles.grid, stylesShared.container, stylesShared.section_spacing)}>
       <div className={styles.feature}>
         <div className={styles.icon}>
           <Image src="/icons/cloud.svg" alt="cloud" width={32} height={22} />

@@ -7,7 +7,7 @@ import stylesShared from 'styles/Shared.module.scss'
 
 const Picker = () => {
   return (
-    <section className={stylesShared.container}>
+    <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
       <Heading justify="center" p="DataLexing Services" h1="Helping you make data-driven decisions, together." />
       <div className={styles.container}>
         <div className={styles.view}>

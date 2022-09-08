@@ -1,12 +1,12 @@
-import Heading from 'components/Heading'
 import Image from 'next/image'
+import classnames from 'classnames'
 import styles from 'styles/sections/Services.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
 const Services = () => {
   return (
-    <section className={stylesShared.container}>
-      <Heading justify="center" h2="Datalexing Services Empower You To:" />
+    <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
+      <h2 className={styles.heading}>Datalexing Services Empower You To:</h2>
       <div className={styles.services}>
         <div className={styles.service}>
           <Image src="/images/software.svg" alt="software" width={127} height={127} />

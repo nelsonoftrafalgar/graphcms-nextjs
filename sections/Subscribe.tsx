@@ -1,12 +1,13 @@
 import Button from 'components/Button'
 import Input from 'components/Input'
 import Select from 'components/Select'
+import classnames from 'classnames'
 import styles from 'styles/sections/Subscribe.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
 const Subscribe = () => {
   return (
-    <section className={stylesShared.container}>
+    <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
       <div className={styles.wrapper}>
         <p className={styles.title}>
           YOU KNOW YOUR <span>DATA</span>, EXPLORE IT <span>YOURSELF!</span>

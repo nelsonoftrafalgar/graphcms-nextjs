@@ -1,13 +1,14 @@
 import Button from 'components/Button'
 import Input from 'components/Input'
 import Select from 'components/Select'
+import classnames from 'classnames'
 import styles from 'styles/sections/Contact.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
 const Contact = () => {
   return (
-    <section className={stylesShared.container}>
-      <div className={styles.wrapper}>
+    <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
+      <div className={styles.grid}>
         <div className={styles.left}>
           <h1 className={styles.intro}>Get in touch</h1>
           <p className={styles.content}>

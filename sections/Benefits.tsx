@@ -6,7 +6,7 @@ import stylesShared from 'styles/Shared.module.scss'
 
 const Benefits = () => {
   return (
-    <section className={classnames(stylesShared.container, styles.wrapper)}>
+    <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
       <Heading justify="left" h2="Lexer Benefits" />
       <div className={styles.benefits}>
         <div className={styles.benefit}>
