@@ -1,3 +1,4 @@
+import Heading from 'components/Heading'
 import Image from 'next/image'
 import classnames from 'classnames'
 import styles from 'styles/sections/Benefits.module.scss'
@@ -6,7 +7,7 @@ import stylesShared from 'styles/Shared.module.scss'
 const Benefits = () => {
   return (
     <section className={classnames(stylesShared.container, styles.wrapper)}>
-      <h2 className={styles.title}>Lexer Benefits</h2>
+      <Heading justify="left" h2="Lexer Benefits" />
       <div className={styles.benefits}>
         <div className={styles.benefit}>
           <Image src="/images/difficulties.png" alt="difficulties" width={33} height={33} />

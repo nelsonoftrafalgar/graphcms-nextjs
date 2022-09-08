@@ -1,3 +1,4 @@
+import Heading from 'components/Heading'
 import Image from 'next/image'
 import classnames from 'classnames'
 import styles from 'styles/sections/TimeLine.module.scss'
@@ -6,8 +7,7 @@ import stylesShared from 'styles/Shared.module.scss'
 const TimeLine = () => {
   return (
     <section className={styles.container}>
-      <p className={styles.heading_small}>Timeline</p>
-      <h1 className={styles.heading}>Learn how it all started and where we are today.</h1>
+      <Heading justify="center" p="Timeline" h2="Learn how it all started and where we are today." />
       <div className={classnames(stylesShared.container, styles.timeline)}>
         <div className={styles.line} />
         <div className={styles.stage}>

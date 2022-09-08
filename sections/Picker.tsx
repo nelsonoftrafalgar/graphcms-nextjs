@@ -1,4 +1,5 @@
 import ButtonLink from 'components/ButtonLink'
+import Heading from 'components/Heading'
 import Image from 'next/image'
 import classnames from 'classnames'
 import styles from 'styles/sections/Picker.module.scss'
@@ -7,8 +8,7 @@ import stylesShared from 'styles/Shared.module.scss'
 const Picker = () => {
   return (
     <section className={stylesShared.container}>
-      <p className={styles.heading_small}>DataLexing Services</p>
-      <h1 className={styles.heading}>Helping you make data-driven decisions, together.</h1>
+      <Heading justify="center" p="DataLexing Services" h1="Helping you make data-driven decisions, together." />
       <div className={styles.container}>
         <div className={styles.view}>
           <div className={styles.picker}>

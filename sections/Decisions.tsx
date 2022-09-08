@@ -1,4 +1,5 @@
 import ButtonLink from 'components/ButtonLink'
+import Heading from 'components/Heading'
 import Image from 'next/image'
 import classnames from 'classnames'
 import styles from 'styles/sections/Decisions.module.scss'
@@ -7,10 +8,7 @@ import stylesShared from 'styles/Shared.module.scss'
 const Decisions = () => {
   return (
     <section className={stylesShared.container}>
-      <div className={styles.top_wrapper}>
-        <p className={styles.top_subtitle}>Why DataLexing?</p>
-        <h2 className={styles.title_top}>Make the right decision at the right time</h2>
-      </div>
+      <Heading justify="center" p="Why DataLexing?" h2="Make the right decision at the right time" />
       <div className={styles.cards}>
         <div className={styles.card}>
           <div className={styles.icon}>

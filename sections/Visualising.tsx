@@ -1,4 +1,5 @@
 import ButtonLink from 'components/ButtonLink'
+import Heading from 'components/Heading'
 import Image from 'next/image'
 import Link from 'next/link'
 import classnames from 'classnames'
@@ -8,9 +9,10 @@ import stylesShared from 'styles/Shared.module.scss'
 const Visualising = () => {
   return (
     <section>
-      <h1 className={styles.heading}>
-        With Lexer, you need zero technical skills to start visualizing all of your data in real-time.
-      </h1>
+      <Heading
+        justify="center"
+        h1="With Lexer, you need zero technical skills to start visualizing all of your data in real-time."
+      />
       <div className={classnames(styles.background, styles.dark)}>
         <div className={classnames(stylesShared.container, styles.wrapper)}>
           <div className={styles.image_wrapper}>

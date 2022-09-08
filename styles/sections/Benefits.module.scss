@@ -1,34 +1,5 @@
-@use 'styles/mixins';
-@use 'styles/colors';
-
 .wrapper {
   margin-bottom: 7rem;
-}
-
-.title {
-  font-size: 1.56rem;
-  position: relative;
-  padding-bottom: 1.5rem;
-  margin: 3rem 0;
-
-  @include mixins.md {
-    font-size: 2rem;
-  }
-
-  @include mixins.md {
-    font-size: 2.44rem;
-  }
-
-  &:before {
-    content: '';
-    display: block;
-    height: 4px;
-    width: 80px;
-    position: absolute;
-    bottom: 0;
-    border-radius: 4px;
-    background: colors.$pink;
-  }
 }
 
 .benefits {

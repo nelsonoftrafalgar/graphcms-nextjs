@@ -1,4 +1,5 @@
 import ButtonLink from 'components/ButtonLink'
+import Heading from 'components/Heading'
 import Image from 'next/image'
 import styles from 'styles/sections/Plan.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
@@ -6,8 +7,7 @@ import stylesShared from 'styles/Shared.module.scss'
 const Plan = () => {
   return (
     <section className={stylesShared.container}>
-      <p className={styles.heading_small}>Pricing</p>
-      <h1 className={styles.heading}>Start making Data-Driven Decisions with the right plan!</h1>
+      <Heading justify="center" p="Pricing" h1="Start making Data-Driven Decisions with the right plan!" />
       <div className={styles.wrapper}>
         <div className={styles.plan}>
           <p className={styles.type}>Starter</p>

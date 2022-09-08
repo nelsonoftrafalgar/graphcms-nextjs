@@ -1,42 +1,4 @@
-@use '/styles/colors';
 @use '/styles/mixins';
-@use 'styles/fonts';
-
-.heading {
-  font-family: fonts.$bold;
-  text-align: center;
-  font-size: 1.33rem;
-  line-height: 1.14;
-  margin: 4rem auto;
-  position: relative;
-  padding: 0 1.56rem 2rem 1.56rem;
-
-  @include mixins.sm {
-    width: 34.4rem;
-  }
-
-  @include mixins.md {
-    font-size: 1.44rem;
-  }
-
-  @include mixins.lg {
-    margin: 5rem auto;
-    font-size: 1.56rem;
-  }
-
-  &:before {
-    content: '';
-    display: block;
-    height: 4px;
-    width: 80px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 4px;
-    background: colors.$pink;
-  }
-}
 
 .services {
   display: grid;

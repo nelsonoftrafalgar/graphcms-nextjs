@@ -60,32 +60,7 @@
   margin-bottom: 1.5rem;
 }
 
-.top_wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin-bottom: 3rem;
-
-  &:before {
-    content: '';
-    display: block;
-    height: 4px;
-    width: 80px;
-    position: absolute;
-    bottom: 0;
-    border-radius: 4px;
-    background: colors.$pink;
-  }
-}
-
-.top_subtitle {
-  font-size: 1.22rem;
-  margin-bottom: 1rem;
-}
-
-.title_bottom,
-.title_top {
+.title_bottom {
   font-size: 1.56rem;
   font-family: fonts.$bold;
   text-align: center;
@@ -105,8 +80,4 @@
   @include mixins.md {
     margin-bottom: 3rem;
   }
-}
-
-.title_top {
-  margin-bottom: 2rem;
 }
