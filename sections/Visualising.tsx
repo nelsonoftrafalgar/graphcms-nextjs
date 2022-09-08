@@ -9,10 +9,12 @@ import stylesShared from 'styles/Shared.module.scss'
 const Visualising = () => {
   return (
     <section className={stylesShared.section_spacing}>
-      <Heading
-        justify="center"
-        h1="With Lexer, you need zero technical skills to start visualizing all of your data in real-time."
-      />
+      <div className={styles.spacing}>
+        <Heading
+          justify="center"
+          h1="With Lexer, you need zero technical skills to start visualizing all of your data in real-time."
+        />
+      </div>
       <div className={classnames(styles.background, styles.dark)}>
         <div className={classnames(stylesShared.container, styles.wrapper)}>
           <div className={styles.image_wrapper}>
