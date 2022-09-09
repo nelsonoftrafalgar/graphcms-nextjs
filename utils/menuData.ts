@@ -1,3 +1,5 @@
+import { ROUTES } from './routes'
+
 interface IMenuItem {
   href?: string
   title: string
@@ -11,7 +13,7 @@ interface IMenuItem {
 
 export const menuData: IMenuItem[] = [
   {
-    href: '/',
+    href: ROUTES.home,
     title: 'Home',
     active: false
   },
@@ -20,19 +22,19 @@ export const menuData: IMenuItem[] = [
     active: false,
     submenu: [
       {
-        href: '/features',
+        href: ROUTES.features,
         title: 'Lexer',
         active: false
       },
       {
-        href: '/service',
+        href: ROUTES.services,
         title: 'Service',
         active: false
       }
     ]
   },
   {
-    href: '/pricing',
+    href: ROUTES.pricing,
     title: 'Pricing',
     active: false
   },
@@ -41,12 +43,12 @@ export const menuData: IMenuItem[] = [
     active: false,
     submenu: [
       {
-        href: '/about-us',
+        href: ROUTES.about_us,
         title: 'About Us',
         active: false
       },
       {
-        href: '/contact-us',
+        href: ROUTES.contact_us,
         title: 'Contact Us',
         active: false
       }

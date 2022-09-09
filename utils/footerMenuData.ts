@@ -1,21 +1,23 @@
+import { ROUTES } from './routes'
+
 export const footerMenuData = [
   {
     title: 'DataLexing',
     links: [
-      { title: 'Home', href: '/' },
-      { title: 'About Us', href: '/about-us' }
+      { title: 'Home', href: ROUTES.home },
+      { title: 'About Us', href: ROUTES.about_us }
     ]
   },
   {
     title: 'Product',
     links: [
-      { title: 'Lexer', href: '/features' },
-      { title: 'Service', href: '/service' },
-      { title: 'Pricing', href: '/pricing' }
+      { title: 'Lexer', href: ROUTES.features },
+      { title: 'Service', href: ROUTES.services },
+      { title: 'Pricing', href: ROUTES.pricing }
     ]
   },
   {
     title: 'Support',
-    links: [{ title: 'Contact us', href: '/contact-us' }]
+    links: [{ title: 'Contact us', href: ROUTES.contact_us }]
   }
 ]
