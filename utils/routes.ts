@@ -4,6 +4,6 @@ export const ROUTES = {
   features: '/features',
   home: '/',
   pricing: '/pricing',
-  services: '/services',
+  service: '/service',
   subscribe: '/subscribe'
 }

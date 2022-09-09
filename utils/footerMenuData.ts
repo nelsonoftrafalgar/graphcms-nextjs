@@ -12,7 +12,7 @@ export const footerMenuData = [
     title: 'Product',
     links: [
       { title: 'Lexer', href: ROUTES.features },
-      { title: 'Service', href: ROUTES.services },
+      { title: 'Service', href: ROUTES.service },
       { title: 'Pricing', href: ROUTES.pricing }
     ]
   },

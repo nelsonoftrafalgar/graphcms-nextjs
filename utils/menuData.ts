@@ -27,7 +27,7 @@ export const menuData: IMenuItem[] = [
         active: false
       },
       {
-        href: ROUTES.services,
+        href: ROUTES.service,
         title: 'Service',
         active: false
       }
