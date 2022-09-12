@@ -1,63 +1,71 @@
+import { FC, useState } from 'react'
+
 import ButtonLink from 'components/ButtonLink'
 import Heading from 'components/Heading'
+import { IPickerItem } from 'models/service'
 import Image from 'next/image'
+import { ROUTES } from 'utils/routes'
 import classnames from 'classnames'
 import styles from 'styles/sections/Picker.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
-const Picker = () => {
+interface IProps {
+  pickerItems: IPickerItem[]
+}
+
+const Picker: FC<IProps> = ({ pickerItems }) => {
+  const [pickerIndex, setPickerIndex] = useState(0)
+
+  const handleIncrementPickerIndex = () => pickerIndex < pickerItems.length - 1 && setPickerIndex((idx) => idx + 1)
+  const handleDecrementPickerIndex = () => pickerIndex > 0 && setPickerIndex((idx) => idx - 1)
+
+  const selectedPickerItem = pickerItems[pickerIndex]
+
   return (
     <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
       <Heading justify="center" p="DataLexing Services" h1="Helping you make data-driven decisions, together." />
       <div className={styles.container}>
         <div className={styles.view}>
           <div className={styles.picker}>
-            <h2 className={styles.title}>Data Science</h2>
-            <p className={styles.content}>
-              The data science service will provide you with data models that solve for a specific need in your
-              organization helping you make a breakthrough in your business excellence.
-            </p>
+            <h2 className={styles.title}>{selectedPickerItem?.title}</h2>
+            <p className={styles.content}>{selectedPickerItem?.content}</p>
             <div className={styles.icons}>
-              <div className={styles.icon}>
-                <div className={styles.icon_wrapper}>
-                  <Image src="/icons/predict.svg" alt="predict" width={16.4} height={16.4} />
+              {selectedPickerItem?.pickerItemIcons.map(({ id, name, icon, iconAlt, iconHeight, iconWidth }) => (
+                <div key={id} className={styles.icon}>
+                  <div className={styles.icon_wrapper}>
+                    <Image src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
+                  </div>
+                  <span>{name}</span>
                 </div>
-                <span>Predict</span>
-              </div>
-              <div className={styles.icon}>
-                <div className={styles.icon_wrapper}>
-                  <Image src="/icons/correlate.svg" alt="correlate" width={16.4} height={16.4} />
-                </div>
-                <span>Correlate</span>
-              </div>
-              <div className={styles.icon}>
-                <div className={styles.icon_wrapper}>
-                  <Image src="/icons/optimize.svg" alt="optimize" width={16.4} height={16.4} />
-                </div>
-                <span>Optimize</span>
-              </div>
+              ))}
             </div>
-            <ButtonLink href="/subscribe" modifiers={['large', 'filled']}>
-              Get Started
+            <ButtonLink href={ROUTES.subscribe} modifiers={['large', 'filled']}>
+              {selectedPickerItem?.buttonText}
             </ButtonLink>
             <div className={styles.navigation}>
               <div className={styles.dots}>
-                <button className={classnames(styles.dot, styles.active)} />
-                <button className={styles.dot} />
-                <button className={styles.dot} />
-                <button className={styles.dot} />
-                <button className={styles.dot} />
-                <button className={styles.dot} />
-                <button className={styles.dot} />
+                {pickerItems.map(({ id }, idx) => (
+                  <button
+                    key={id}
+                    onClick={() => setPickerIndex(idx)}
+                    className={classnames(styles.dot, { [styles.active]: idx === pickerIndex })}
+                  />
+                ))}
               </div>
               <div className={styles.arrows}>
-                <button>
-                  <Image className={styles.arrow} src="/icons/arrow_left.svg" alt="arrow_left" width={15} height={14} />
+                <button onClick={handleDecrementPickerIndex}>
+                  <Image
+                    className={classnames(styles.arrow, { [styles.active]: pickerIndex > 0 })}
+                    src="/icons/arrow_left.svg"
+                    alt="arrow_left"
+                    width={15}
+                    height={14}
+                  />
                 </button>
                 <div className={styles.point} />
-                <button>
+                <button onClick={handleIncrementPickerIndex}>
                   <Image
-                    className={styles.arrow}
+                    className={classnames(styles.arrow, { [styles.active]: pickerIndex < pickerItems.length - 1 })}
                     src="/icons/arrow_right.svg"
                     alt="arrow_right"
                     width={15}
@@ -70,27 +78,11 @@ const Picker = () => {
         </div>
         <div className={styles.list}>
           <ul>
-            <li className={styles.list_item}>
-              <button>Data Science</button>
-            </li>
-            <li className={styles.list_item}>
-              <button>Data Strategy</button>
-            </li>
-            <li className={styles.list_item}>
-              <button>Data Engineering</button>
-            </li>
-            <li className={styles.list_item}>
-              <button>Business Intelligence</button>
-            </li>
-            <li className={styles.list_item}>
-              <button>Data Governance</button>
-            </li>
-            <li className={styles.list_item}>
-              <button>Migration</button>
-            </li>
-            <li className={styles.list_item}>
-              <button>Onboarding</button>
-            </li>
+            {pickerItems.map(({ title, id }, idx) => (
+              <li key={id} className={classnames(styles.list_item, { [styles.active]: idx === pickerIndex })}>
+                <button onClick={() => setPickerIndex(idx)}>{title}</button>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

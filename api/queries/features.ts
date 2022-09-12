@@ -1,7 +1,7 @@
 import { gql } from 'graphql-request'
 
 export const features = gql`
-  query {
+  {
     visualisings {
       title
     }

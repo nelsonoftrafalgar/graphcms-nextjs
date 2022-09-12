@@ -1,7 +1,7 @@
 import { gql } from 'graphql-request'
 
 export const home = gql`
-  query {
+  {
     heros {
       title
       content
