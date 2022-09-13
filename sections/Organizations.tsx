@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Heading from 'components/Heading'
-import { IHeading } from 'models/pricing'
+import { IHeading } from 'models/common'
 import Image from 'next/image'
 import styles from 'styles/sections/Organizations.module.scss'
 

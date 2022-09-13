@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Heading from 'components/Heading'
-import { IHeading } from 'models/pricing'
+import { IHeading } from 'models/common'
 import { ITimelineItem } from 'models/aboutUs'
 import Image from 'next/image'
 import classnames from 'classnames'

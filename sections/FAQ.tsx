@@ -1,8 +1,8 @@
-import { IFAQ, IHeading } from 'models/pricing'
-
 import AccordionElement from 'components/AccordionElement'
 import { FC } from 'react'
 import Heading from 'components/Heading'
+import { IFAQ } from 'models/pricing'
+import { IHeading } from 'models/common'
 import classnames from 'classnames'
 import styles from 'styles/sections/FAQ.module.scss'
 import stylesShared from 'styles/Shared.module.scss'

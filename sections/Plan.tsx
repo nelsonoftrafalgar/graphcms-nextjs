@@ -1,8 +1,9 @@
-import { IDefaultInclude, IHeading, IPlan } from 'models/pricing'
+import { IDefaultInclude, IPlan } from 'models/pricing'
 
 import ButtonLink from 'components/ButtonLink'
 import { FC } from 'react'
 import Heading from 'components/Heading'
+import { IHeading } from 'models/common'
 import Image from 'next/image'
 import { ROUTES } from 'utils/routes'
 import classnames from 'classnames'

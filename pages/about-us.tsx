@@ -1,6 +1,6 @@
 import Demo from 'sections/Demo'
 import { FC } from 'react'
-import { IHeading } from 'models/pricing'
+import { IHeading } from 'models/common'
 import { ITimelineItem } from 'models/aboutUs'
 import Organizations from 'sections/Organizations'
 import TimeLine from 'sections/TimeLine'
