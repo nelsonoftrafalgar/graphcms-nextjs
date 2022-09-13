@@ -1,17 +1,24 @@
+import { IFAQ, IHeading } from 'models/pricing'
+
 import AccordionElement from 'components/AccordionElement'
+import { FC } from 'react'
 import Heading from 'components/Heading'
 import classnames from 'classnames'
-import { faqData } from 'utils/faqData'
 import styles from 'styles/sections/FAQ.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
-const FAQ = () => {
+interface IProps {
+  heading?: IHeading
+  faqs: IFAQ[]
+}
+
+const FAQ: FC<IProps> = ({ heading, faqs }) => {
   return (
     <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
-      <Heading justify="center" p="Frequently Asked Questions" h2="Find answers and general information quickly." />
+      <Heading justify="center" p={heading?.content} h2={heading?.title} />
       <div className={styles.wrapper}>
         <ul className={styles.list}>
-          {faqData.map((item) => (
+          {faqs.map((item) => (
             <AccordionElement key={item.id} {...item} />
           ))}
         </ul>

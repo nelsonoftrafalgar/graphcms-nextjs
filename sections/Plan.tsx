@@ -1,81 +1,60 @@
+import { IDefaultInclude, IHeading, IPlan } from 'models/pricing'
+
 import ButtonLink from 'components/ButtonLink'
+import { FC } from 'react'
 import Heading from 'components/Heading'
 import Image from 'next/image'
+import { ROUTES } from 'utils/routes'
 import classnames from 'classnames'
 import styles from 'styles/sections/Plan.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
-const Plan = () => {
+interface IProps {
+  heading?: IHeading
+  plans: IPlan[]
+  defaultIncludes: IDefaultInclude[]
+}
+
+const Plan: FC<IProps> = ({ heading, plans, defaultIncludes }) => {
   return (
     <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
-      <Heading justify="center" p="Pricing" h1="Start making Data-Driven Decisions with the right plan!" />
+      <Heading justify="center" p={heading?.content} h1={heading?.title} />
       <div className={styles.wrapper}>
-        <div className={styles.plan}>
-          <p className={styles.type}>Starter</p>
-          <p className={styles.price}>
-            <span>USD 99</span>/Month*
-          </p>
-          <p className={styles.includes}>Starter Includes:</p>
-          <ul className={styles.list}>
-            <li className={styles.item}>Unlimited Datasources</li>
-            <li className={styles.item}>Unlimited Dashboards</li>
-            <li className={styles.item}>Scheduled Alerts</li>
-            <li className={styles.item}>Proactive Reporting</li>
-            <li className={styles.item}>Lexer Support Included</li>
-          </ul>
-          <ButtonLink href="/subscribe" modifiers={['large', 'filled']}>
-            Get Started
-          </ButtonLink>
-        </div>
-        <div className={styles.plan}>
-          <p className={styles.type}>Enterprise</p>
-          <p className={styles.price}>
-            <span>USD 149</span>/Month*
-          </p>
-          <p className={styles.includes}>Everything in the Starter, Plus:</p>
-          <ul className={styles.list}>
-            <li className={styles.item}>Single Sign-On</li>
-            <li className={styles.item}>Ongoing Success Program</li>
-            <li className={styles.item}>Dedicated Success Manager</li>
-            <li className={styles.item}>Advanced Permissions Configuration</li>
-            <li className={styles.item}>Row-Level Security</li>
-            <li className={styles.item}>Advanced Actions Log</li>
-          </ul>
-          <ButtonLink href="/subscribe" modifiers={['large', 'filled']}>
-            Get Started
-          </ButtonLink>
-        </div>
-        <div className={styles.plan}>
-          <p className={styles.type}>On-Premise</p>
-          <p className={styles.price}>
-            <span>Contact Us</span>
-          </p>
-          <p className={styles.includes}>Everything in the Enterprise, Plus:</p>
-          <ul className={styles.list}>
-            <li className={styles.item}>On-Premise Deployment</li>
-            <li className={styles.item}>Lexer Training</li>
-            <li className={styles.item}>Deployment</li>
-            <li className={styles.item}>Premium Support</li>
-          </ul>
-          <ButtonLink href="/subscribe" modifiers={['large', 'transparent']}>
-            Get Started
-          </ButtonLink>
-        </div>
+        {plans.map(({ id, type, price, span, content, planIncludes, buttonText }) => (
+          <div key={id} className={classnames(styles.plan, { [styles.filled]: !price })}>
+            <p className={styles.type}>{type}</p>
+            {price ? (
+              <p className={styles.price}>
+                <span>USD {price}</span>
+                {span}*
+              </p>
+            ) : (
+              <p className={styles.price}>
+                <span>Contact Us</span>
+              </p>
+            )}
+            <p className={styles.includes}>{content}</p>
+            <ul className={styles.list}>
+              {planIncludes.map(({ id, include }) => (
+                <li key={id} className={styles.item}>
+                  {include}
+                </li>
+              ))}
+            </ul>
+            <ButtonLink href={ROUTES.subscribe} modifiers={price ? ['large', 'filled'] : ['large', 'transparent']}>
+              {buttonText}
+            </ButtonLink>
+          </div>
+        ))}
       </div>
       <h3 className={styles.sub_heading}>All plans include:</h3>
       <div className={styles.icons}>
-        <div className={styles.icon}>
-          <Image src="/icons/setup.svg" alt="setup" width={32.7} height={32.7} />
-          <span>Lexer Setup</span>
-        </div>
-        <div className={styles.icon}>
-          <Image src="/icons/training.svg" alt="training" width={32.7} height={32.7} />
-          <span>Lexer Training</span>
-        </div>
-        <div className={styles.icon}>
-          <Image src="/icons/support.svg" alt="support" width={32.7} height={32.7} />
-          <span>Premium Support</span>
-        </div>
+        {defaultIncludes.map(({ id, content, icon, iconAlt, iconHeight, iconWidth }) => (
+          <div key={id} className={styles.icon}>
+            <Image src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
+            <span>{content}</span>
+          </div>
+        ))}
       </div>
     </section>
   )
