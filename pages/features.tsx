@@ -1,24 +1,27 @@
-import { IBenefitCard, ITitle, IVisualisingCard } from 'models/features'
+import { IBenefitCard, IVisualisingCard } from 'models/features'
 
 import Benefits from 'sections/Benefits'
 import Demo from 'sections/Demo'
 import { FC } from 'react'
+import { IHeading } from 'models/common'
 import Visualising from 'sections/Visualising'
 import { features } from 'api/queries/features'
 import { graphQLClient } from 'api/graphqlClient'
 
 interface IProps {
-  visualisings: ITitle
-  benefits: ITitle
+  headings: IHeading[]
   visualisingCards: IVisualisingCard[]
   benefitCards: IBenefitCard[]
 }
 
-const Features: FC<IProps> = ({ visualisingCards, visualisings, benefitCards, benefits }) => {
+const Features: FC<IProps> = ({ headings, visualisingCards, benefitCards }) => {
+  const visualisingHeading = headings.find(({ section }) => section === 'visualising')
+  const benefitsHeading = headings.find(({ section }) => section === 'benefits')
+
   return (
     <main>
-      <Visualising {...visualisings} visualisingCards={visualisingCards} />
-      <Benefits {...benefits} benefitCards={benefitCards} />
+      <Visualising heading={visualisingHeading} visualisingCards={visualisingCards} />
+      <Benefits heading={benefitsHeading} benefitCards={benefitCards} />
       <Demo />
     </main>
   )
@@ -27,11 +30,10 @@ const Features: FC<IProps> = ({ visualisingCards, visualisings, benefitCards, be
 export default Features
 
 export const getStaticProps = async () => {
-  const { visualisings, visualisingCards, benefits, benefitCards } = await graphQLClient.request(features)
+  const { headings, visualisingCards, benefitCards } = await graphQLClient.request(features, { page: 'features' })
   return {
     props: {
-      visualisings: visualisings[0],
-      benefits: benefits[0],
+      headings,
       visualisingCards,
       benefitCards
     }

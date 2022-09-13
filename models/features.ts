@@ -1,7 +1,3 @@
-export interface ITitle {
-  title: string
-}
-
 export interface IVisualisingCard {
   id: string
   title: string

@@ -1,8 +1,8 @@
-import { ITitle, IVisualisingCard } from 'models/features'
-
 import ButtonLink from 'components/ButtonLink'
 import { FC } from 'react'
 import Heading from 'components/Heading'
+import { IHeading } from 'models/common'
+import { IVisualisingCard } from 'models/features'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ROUTES } from 'utils/routes'
@@ -10,15 +10,16 @@ import classnames from 'classnames'
 import styles from 'styles/sections/Visualising.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
-interface IProps extends ITitle {
+interface IProps {
+  heading?: IHeading
   visualisingCards: IVisualisingCard[]
 }
 
-const Visualising: FC<IProps> = ({ title, visualisingCards }) => {
+const Visualising: FC<IProps> = ({ heading, visualisingCards }) => {
   return (
     <section className={stylesShared.section_spacing}>
       <div className={styles.spacing}>
-        <Heading justify="center" h1={title} />
+        <Heading justify="center" h1={heading?.title} />
       </div>
 
       {visualisingCards.map(({ id, title, content, buttonText, iamgeAlt, image }, i) => {

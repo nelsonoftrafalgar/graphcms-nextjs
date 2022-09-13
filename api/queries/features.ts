@@ -1,9 +1,11 @@
 import { gql } from 'graphql-request'
 
 export const features = gql`
-  {
-    visualisings {
+  query ($page: String!) {
+    headings(where: { page: $page }) {
       title
+      content
+      section
     }
     visualisingCards {
       id
@@ -14,9 +16,6 @@ export const features = gql`
         url
       }
       imageAlt
-    }
-    benefits {
-      title
     }
     benefitCards {
       id
