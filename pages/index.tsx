@@ -1,25 +1,27 @@
-import { ICard, IDecisions, IHero } from 'models/home'
-
 import Decisions from 'sections/Decisions'
 import Demo from 'sections/Demo'
 import Features from 'sections/Features'
 import Hero from 'sections/Hero'
+import { ICard } from 'models/home'
+import { IHeading } from 'models/common'
 import type { NextPage } from 'next'
 import { graphQLClient } from 'api/graphqlClient'
 import { home } from 'api/queries/home'
 
 interface IProps {
-  hero: IHero
-  decisions: IDecisions
   features: ICard[]
   decisionCards: ICard[]
+  headings: IHeading[]
 }
 
-const Home: NextPage<IProps> = ({ hero, decisions, decisionCards, features }) => {
+const Home: NextPage<IProps> = ({ decisionCards, features, headings }) => {
+  const heroHeading = headings.find(({ section }) => section === 'hero')
+  const decisionsHeading = headings.find(({ section }) => section === 'decisions')
+
   return (
     <main>
-      <Hero {...hero} />
-      <Decisions {...decisions} decisionCards={decisionCards} />
+      <Hero heading={heroHeading} />
+      <Decisions heading={decisionsHeading} decisionCards={decisionCards} />
       <Features features={features} />
       <Demo />
     </main>
@@ -29,11 +31,10 @@ const Home: NextPage<IProps> = ({ hero, decisions, decisionCards, features }) =>
 export default Home
 
 export const getStaticProps = async () => {
-  const { heros, decisions, decisionCards, features } = await graphQLClient.request(home)
+  const { decisionCards, features, headings } = await graphQLClient.request(home, { page: 'home' })
   return {
     props: {
-      hero: heros[0],
-      decisions: decisions[0],
+      headings,
       decisionCards,
       features
     }

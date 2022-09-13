@@ -1,21 +1,11 @@
 import { gql } from 'graphql-request'
 
 export const home = gql`
-  {
-    heros {
+  query ($page: String!) {
+    headings(where: { page: $page }) {
       title
       content
-      buttonText
-      imageAlt
-      image {
-        url
-      }
-    }
-    decisions {
-      paragraph
-      heading
-      bottomTitle
-      buttonText
+      section
     }
     decisionCards {
       id

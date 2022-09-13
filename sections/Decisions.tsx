@@ -1,17 +1,23 @@
 import ButtonLink from 'components/ButtonLink'
 import { FC } from 'react'
 import Heading from 'components/Heading'
-import { IDecisions } from 'models/home'
+import { ICard } from 'models/home'
+import { IHeading } from 'models/common'
 import Image from 'next/image'
 import { ROUTES } from 'utils/routes'
 import classnames from 'classnames'
 import styles from 'styles/sections/Decisions.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
-const Decisions: FC<IDecisions> = ({ heading, paragraph, bottomTitle, buttonText, decisionCards }) => {
+interface IProps {
+  heading?: IHeading
+  decisionCards: ICard[]
+}
+
+const Decisions: FC<IProps> = ({ heading, decisionCards }) => {
   return (
     <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
-      <Heading justify="center" p={paragraph} h2={heading} />
+      <Heading justify="center" p={heading?.content} h2={heading?.title} />
       <div className={styles.cards}>
         {decisionCards.map(({ id, icon, iconAlt, iconHeight, iconWidth, title, content }, i) => (
           <div key={id} className={classnames(styles.card, { [styles.dark]: i % 2 !== 0 })}>
@@ -24,9 +30,9 @@ const Decisions: FC<IDecisions> = ({ heading, paragraph, bottomTitle, buttonText
         ))}
       </div>
       <div className={styles.bottom_wrapper}>
-        <h2 className={styles.title_bottom}>{bottomTitle}</h2>
+        <h2 className={styles.title_bottom}>Start making Data-Driven Decisions with Lexer!</h2>
         <ButtonLink href={ROUTES.subscribe} modifiers={['large', 'filled']}>
-          {buttonText}
+          Get Started for Free
         </ButtonLink>
       </div>
     </section>

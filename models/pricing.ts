@@ -1,9 +1,3 @@
-export interface IHeading {
-  title?: string
-  content?: string
-  section: string
-}
-
 interface IPlanInclude {
   include: string
   id: string

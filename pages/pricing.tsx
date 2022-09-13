@@ -1,8 +1,9 @@
-import { IDefaultInclude, IFAQ, IHeading, IPlan } from 'models/pricing'
+import { IDefaultInclude, IFAQ, IPlan } from 'models/pricing'
 
 import Demo from 'sections/Demo'
 import FAQ from 'sections/FAQ'
 import { FC } from 'react'
+import { IHeading } from 'models/common'
 import Plan from 'sections/Plan'
 import { graphQLClient } from 'api/graphqlClient'
 import { pricing } from 'api/queries/pricing'
