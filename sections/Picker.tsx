@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 
 import ButtonLink from 'components/ButtonLink'
 import Heading from 'components/Heading'
+import { IHeading } from 'models/common'
 import { IPickerItem } from 'models/service'
 import Image from 'next/image'
 import { ROUTES } from 'utils/routes'
@@ -10,10 +11,11 @@ import styles from 'styles/sections/Picker.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
 interface IProps {
+  heading?: IHeading
   pickerItems: IPickerItem[]
 }
 
-const Picker: FC<IProps> = ({ pickerItems }) => {
+const Picker: FC<IProps> = ({ heading, pickerItems }) => {
   const [pickerIndex, setPickerIndex] = useState(0)
 
   const handleIncrementPickerIndex = () => pickerIndex < pickerItems.length - 1 && setPickerIndex((idx) => idx + 1)
@@ -23,7 +25,7 @@ const Picker: FC<IProps> = ({ pickerItems }) => {
 
   return (
     <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
-      <Heading justify="center" p="DataLexing Services" h1="Helping you make data-driven decisions, together." />
+      <Heading justify="center" p={heading?.content} h1={heading?.title} />
       <div className={styles.container}>
         <div className={styles.view}>
           <div className={styles.picker}>

@@ -1,7 +1,12 @@
 import { gql } from 'graphql-request'
 
 export const service = gql`
-  {
+  query ($page: String!) {
+    headings(where: { page: $page }) {
+      title
+      content
+      section
+    }
     pickerItems {
       id
       title
