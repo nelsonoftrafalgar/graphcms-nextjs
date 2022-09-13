@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { IHeading } from 'models/common'
 import { IServiceItem } from 'models/service'
-import Image from 'next/image'
+import Service from 'components/elements/Service'
 import classnames from 'classnames'
 import styles from 'styles/sections/Services.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
@@ -16,11 +16,8 @@ const Services: FC<IProps> = ({ heading, services }) => {
     <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
       <h2 className={styles.heading}>{heading?.title}</h2>
       <div className={styles.services}>
-        {services.map(({ id, content, icon, iconAlt, iconHeight, iconWidth }) => (
-          <div key={id} className={styles.service}>
-            <Image src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
-            <p>{content}</p>
-          </div>
+        {services.map((service) => (
+          <Service key={service.id} {...service} />
         ))}
       </div>
     </section>

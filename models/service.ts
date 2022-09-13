@@ -1,4 +1,4 @@
-interface IPickerItemIcon {
+export interface IPickerItemIcon {
   id: string
   name: string
   iconAlt: string

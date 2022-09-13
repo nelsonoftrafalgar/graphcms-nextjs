@@ -10,6 +10,7 @@ export const home = gql`
     decisionCards {
       id
       title
+      theme
       content
       icon {
         url

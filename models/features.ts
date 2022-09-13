@@ -2,8 +2,9 @@ export interface IVisualisingCard {
   id: string
   title: string
   content: string
+  theme: 'light' | 'dark'
   buttonText: string
-  iamgeAlt: string
+  imageAlt: string
   image: { url: string }
 }
 

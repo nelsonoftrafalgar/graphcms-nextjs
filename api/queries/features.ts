@@ -16,6 +16,7 @@ export const features = gql`
         url
       }
       imageAlt
+      theme
     }
     benefitCards {
       id
