@@ -3,22 +3,23 @@ import { FC } from 'react'
 import { IHeading } from 'models/common'
 import { ITimelineItem } from 'models/aboutUs'
 import Organizations from 'sections/Organizations'
+import { Pages } from 'types/pages'
+import { Sections } from 'types/sections'
 import TimeLine from 'sections/TimeLine'
 import { aboutUs } from 'api/queries/about-us'
+import { getHeadings } from 'utils/getHeadings'
 import { graphQLClient } from 'api/graphqlClient'
 
 interface IProps {
-  headings: IHeading[]
+  organizationsHeadings: IHeading[]
+  timelineHeading: IHeading
   timelineItems: ITimelineItem[]
 }
 
-const AboutUs: FC<IProps> = ({ headings, timelineItems }) => {
-  const organizationsHeading = headings.filter(({ section }) => section === 'organizations') || []
-  const timelineHeading = headings.find(({ section }) => section === 'organizations')
-
+const AboutUs: FC<IProps> = ({ organizationsHeadings, timelineHeading, timelineItems }) => {
   return (
     <main>
-      <Organizations headings={organizationsHeading} />
+      <Organizations headings={organizationsHeadings} />
       <TimeLine heading={timelineHeading} timelineItems={timelineItems} />
       <Demo />
     </main>
@@ -28,10 +29,12 @@ const AboutUs: FC<IProps> = ({ headings, timelineItems }) => {
 export default AboutUs
 
 export const getStaticProps = async () => {
-  const { headings, timelineItems } = await graphQLClient.request(aboutUs, { page: 'about-us' })
+  const { headings, timelineItems } = await graphQLClient.request(aboutUs, { page: Pages.about_us })
+  const [timelineHeading, organizationsHeadings] = getHeadings(headings)(Sections.timeline, Sections.organizations)
   return {
     props: {
-      headings,
+      organizationsHeadings,
+      timelineHeading,
       timelineItems
     }
   }

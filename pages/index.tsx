@@ -5,19 +5,20 @@ import Hero from 'sections/Hero'
 import { ICard } from 'models/home'
 import { IHeading } from 'models/common'
 import type { NextPage } from 'next'
+import { Pages } from 'types/pages'
+import { Sections } from 'types/sections'
+import { getHeadings } from 'utils/getHeadings'
 import { graphQLClient } from 'api/graphqlClient'
 import { home } from 'api/queries/home'
 
 interface IProps {
   features: ICard[]
   decisionCards: ICard[]
-  headings: IHeading[]
+  heroHeading: IHeading
+  decisionsHeading: IHeading
 }
 
-const Home: NextPage<IProps> = ({ decisionCards, features, headings }) => {
-  const heroHeading = headings.find(({ section }) => section === 'hero')
-  const decisionsHeading = headings.find(({ section }) => section === 'decisions')
-
+const Home: NextPage<IProps> = ({ decisionCards, features, heroHeading, decisionsHeading }) => {
   return (
     <main>
       <Hero heading={heroHeading} />
@@ -31,10 +32,12 @@ const Home: NextPage<IProps> = ({ decisionCards, features, headings }) => {
 export default Home
 
 export const getStaticProps = async () => {
-  const { decisionCards, features, headings } = await graphQLClient.request(home, { page: 'home' })
+  const { decisionCards, features, headings } = await graphQLClient.request(home, { page: Pages.home })
+  const [heroHeading, decisionsHeading] = getHeadings(headings)(Sections.hero, Sections.decisions)
   return {
     props: {
-      headings,
+      heroHeading,
+      decisionsHeading,
       decisionCards,
       features
     }

@@ -3,21 +3,22 @@ import { IPickerItem, IServiceItem } from 'models/service'
 import Demo from 'sections/Demo'
 import { FC } from 'react'
 import { IHeading } from 'models/common'
+import { Pages } from 'types/pages'
 import Picker from 'sections/Picker'
+import { Sections } from 'types/sections'
 import Services from 'sections/Services'
+import { getHeadings } from 'utils/getHeadings'
 import { graphQLClient } from 'api/graphqlClient'
 import { service } from 'api/queries/service'
 
 interface IProps {
-  headings: IHeading[]
+  pickerHeading: IHeading
+  servicesHeading: IHeading
   pickerItems: IPickerItem[]
   services: IServiceItem[]
 }
 
-const Service: FC<IProps> = ({ headings, pickerItems, services }) => {
-  const pickerHeading = headings.find(({ section }) => section === 'picker')
-  const servicesHeading = headings.find(({ section }) => section === 'services')
-
+const Service: FC<IProps> = ({ pickerHeading, servicesHeading, pickerItems, services }) => {
   return (
     <main>
       <Picker heading={pickerHeading} pickerItems={pickerItems} />
@@ -30,10 +31,12 @@ const Service: FC<IProps> = ({ headings, pickerItems, services }) => {
 export default Service
 
 export const getStaticProps = async () => {
-  const { headings, pickerItems, services } = await graphQLClient.request(service, { page: 'service' })
+  const { headings, pickerItems, services } = await graphQLClient.request(service, { page: Pages.service })
+  const [pickerHeading, servicesHeading] = getHeadings(headings)(Sections.picker, Sections.services)
   return {
     props: {
-      headings,
+      pickerHeading,
+      servicesHeading,
       pickerItems,
       services
     }
