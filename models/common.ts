@@ -7,3 +7,11 @@ export interface IHeading {
   section: Sections
   page: Pages
 }
+
+export interface ISelect {
+  name: string
+  selectOptions: {
+    id: string
+    value: string
+  }[]
+}

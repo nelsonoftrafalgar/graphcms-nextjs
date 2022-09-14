@@ -1,11 +1,17 @@
 import Button from 'components/Button'
+import { FC } from 'react'
+import { ISelect } from 'models/common'
 import Input from 'components/Input'
 import Select from 'components/Select'
 import classnames from 'classnames'
 import styles from 'styles/sections/Contact.module.scss'
 import stylesShared from 'styles/Shared.module.scss'
 
-const Contact = () => {
+interface IProps {
+  topicSelectOptions: ISelect
+}
+
+const Contact: FC<IProps> = ({ topicSelectOptions }) => {
   return (
     <section className={classnames(stylesShared.container, stylesShared.section_spacing)}>
       <div className={styles.grid}>
@@ -24,13 +30,11 @@ const Contact = () => {
             <Input id="phone_number" type="text" placeholder="Phone Number" />
             <Input id="company_name" type="text" placeholder="Company Name" />
             <Select id="topic">
-              <option value="Buying Lexer License">Buying Lexer License</option>
-              <option value="Lexer Demo/Free Trial">Lexer Demo/Free Trial</option>
-              <option value="Profesional Services">Profesional Services</option>
-              <option value="Lexer Onboarding">Lexer Onboarding</option>
-              <option value="Data Analytics Training">Data Analytics Training</option>
-              <option value="Join Our Tean">Join Our Tean</option>
-              <option value="Other Inquires">Other Inquires</option>
+              {topicSelectOptions.selectOptions.map(({ id, value }) => (
+                <option key={id} value={value}>
+                  {value}
+                </option>
+              ))}
             </Select>
             <Button>Submit</Button>
           </form>

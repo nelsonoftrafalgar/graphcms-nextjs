@@ -1,5 +1,4 @@
-import React, { FC } from 'react'
-
+import { FC } from 'react'
 import { IDefaultInclude } from 'models/pricing'
 import Image from 'next/image'
 import styles from 'styles/sections/Plan.module.scss'
