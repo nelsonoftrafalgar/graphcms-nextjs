@@ -25,31 +25,24 @@ export const subscribeSchema = yup.object({
     .max(100, maxCharacterCount(100))
     .matches(CHARACTERS_CONSTRAIN, invalidCharacters)
     .matches(WHITESPACE_CONSTRAIN, whitespace),
-  email: yup
-    .string()
-    .required(required)
-    .max(100, maxCharacterCount(100))
-    .matches(EMAIL_CONSTRAIN, email)
-    .matches(WHITESPACE_CONSTRAIN, whitespace),
+  email: yup.string().required(required).matches(EMAIL_CONSTRAIN, email),
   mobile_phone_number: yup
     .string()
     .required(required)
     .max(20, maxCharacterCount(20))
-    .matches(PHONE_CONSTRAIN, invalidCharacters)
-    .matches(WHITESPACE_CONSTRAIN, whitespace),
+    .matches(PHONE_CONSTRAIN, invalidCharacters),
   company_name: yup
     .string()
     .required(required)
     .max(100, maxCharacterCount(100))
     .matches(CHARACTERS_CONSTRAIN, invalidCharacters)
     .matches(WHITESPACE_CONSTRAIN, whitespace),
-  type: yup.string().required(),
-  help: yup.string().required(),
-  tool: yup.string().required(),
+  type: yup.string().required(required),
+  help: yup.string().required(required),
+  tool: yup.string().required(required),
   challenges: yup
     .string()
     .required(required)
-    .max(100, maxCharacterCount(1000))
+    .max(200, maxCharacterCount(200))
     .matches(CHALLENGES_CONSTRAIN, invalidCharacters)
-    .matches(WHITESPACE_CONSTRAIN, whitespace)
 })

@@ -19,23 +19,17 @@ export const contactSchema = yup.object({
     .max(100, maxCharacterCount(100))
     .matches(CHARACTERS_CONSTRAIN, invalidCharacters)
     .matches(WHITESPACE_CONSTRAIN, whitespace),
-  email: yup
-    .string()
-    .required(required)
-    .max(100, maxCharacterCount(100))
-    .matches(EMAIL_CONSTRAIN, email)
-    .matches(WHITESPACE_CONSTRAIN, whitespace),
+  email: yup.string().required(required).matches(EMAIL_CONSTRAIN, email),
   phone_number: yup
     .string()
     .required(required)
     .max(20, maxCharacterCount(20))
-    .matches(PHONE_CONSTRAIN, invalidCharacters)
-    .matches(WHITESPACE_CONSTRAIN, whitespace),
+    .matches(PHONE_CONSTRAIN, invalidCharacters),
   company_name: yup
     .string()
     .required(required)
     .max(100, maxCharacterCount(100))
     .matches(CHARACTERS_CONSTRAIN, invalidCharacters)
     .matches(WHITESPACE_CONSTRAIN, whitespace),
-  topic: yup.string().required()
+  topic: yup.string().required(required)
 })

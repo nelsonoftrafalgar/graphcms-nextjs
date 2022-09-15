@@ -12,10 +12,10 @@ import stylesShared from 'styles/Shared.module.scss'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 interface IProps {
-  topicSelectOptions: ISelect
+  topicSelect: ISelect
 }
 
-const Contact: FC<IProps> = ({ topicSelectOptions }) => {
+const Contact: FC<IProps> = ({ topicSelect }) => {
   const methods = useForm({
     resolver: yupResolver(contactSchema)
   })
@@ -43,7 +43,7 @@ const Contact: FC<IProps> = ({ topicSelectOptions }) => {
               <Input id="phone_number" type="text" placeholder="Phone Number" />
               <Input id="company_name" type="text" placeholder="Company Name" />
               <Select id="topic">
-                {topicSelectOptions.selectOptions.map(({ id, value }) => (
+                {topicSelect.selectOptions.map(({ id, value }) => (
                   <option key={id} value={value}>
                     {value}
                   </option>

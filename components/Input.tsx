@@ -25,9 +25,12 @@ const Input: FC<IProps> = ({ id, label, placeholder, type }) => {
         className={classnames(styles.input, { [styles.with_label]: label, [styles.error]: error })}
         id={id}
         type={type}
+        aria-label={id}
       />
       {error && (
-        <p className={classnames(styles.error_message, { [styles.with_label]: label })}>{error?.message as string}</p>
+        <p data-testid={`${id}_error`} className={classnames(styles.error_message, { [styles.with_label]: label })}>
+          {error?.message as string}
+        </p>
       )}
     </label>
   )

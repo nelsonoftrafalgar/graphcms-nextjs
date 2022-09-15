@@ -12,12 +12,12 @@ import { subscribeSchema } from 'validation/subscribe'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 interface IProps {
-  typeSelectOptions: ISelect
-  helpSelectOptions: ISelect
-  toolSelectOptions: ISelect
+  typeSelect: ISelect
+  helpSelect: ISelect
+  toolSelect: ISelect
 }
 
-const Subscribe: FC<IProps> = ({ typeSelectOptions, helpSelectOptions, toolSelectOptions }) => {
+const Subscribe: FC<IProps> = ({ typeSelect, helpSelect, toolSelect }) => {
   const methods = useForm({
     resolver: yupResolver(subscribeSchema)
   })
@@ -42,21 +42,21 @@ const Subscribe: FC<IProps> = ({ typeSelectOptions, helpSelectOptions, toolSelec
               <Input id="email" type="email" label="Email*" />
               <Input id="company_name" type="text" label="Company Name*" />
               <Select label="Company type*" id="type">
-                {typeSelectOptions.selectOptions.map(({ id, value }) => (
+                {typeSelect.selectOptions.map(({ id, value }) => (
                   <option key={id} value={value}>
                     {value}
                   </option>
                 ))}
               </Select>
               <Select label="How can we help you?*" id="help">
-                {helpSelectOptions.selectOptions.map(({ id, value }) => (
+                {helpSelect.selectOptions.map(({ id, value }) => (
                   <option key={id} value={value}>
                     {value}
                   </option>
                 ))}
               </Select>
               <Select label="What is the tool used for reports?*" id="tool">
-                {toolSelectOptions.selectOptions.map(({ id, value }) => (
+                {toolSelect.selectOptions.map(({ id, value }) => (
                   <option key={id} value={value}>
                     {value}
                   </option>

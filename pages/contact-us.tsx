@@ -9,7 +9,7 @@ import { getSelectOptions } from 'utils/getSelectOptions'
 import { graphQLClient } from 'api/graphqlClient'
 
 interface IProps {
-  topicSelectOptions: ISelect
+  topicSelect: ISelect
 }
 
 const ContactUs: FC<IProps> = (props) => {
@@ -25,10 +25,10 @@ export default ContactUs
 
 export const getStaticProps = async () => {
   const { selects } = await graphQLClient.request(contact, { page: Pages.contact_us })
-  const [topicSelectOptions] = getSelectOptions(selects)(Selects.topic)
+  const [topicSelect] = getSelectOptions(selects)(Selects.topic)
   return {
     props: {
-      topicSelectOptions
+      topicSelect
     }
   }
 }

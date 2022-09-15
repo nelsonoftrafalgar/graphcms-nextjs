@@ -23,6 +23,7 @@ const Select: FC<PropsWithChildren<IProps>> = ({ id, label, children }) => {
         {...register(id)}
         id={id}
         className={classnames(selectStyles.select, styles.input, { [styles.with_label]: label, [styles.error]: error })}
+        aria-label={id}
       >
         <option selected disabled value="">
           Please Select
@@ -30,7 +31,9 @@ const Select: FC<PropsWithChildren<IProps>> = ({ id, label, children }) => {
         {children}
       </select>
       {error && (
-        <p className={classnames(styles.error_message, { [styles.with_label]: label })}>{error?.message as string}</p>
+        <p data-testid={`${id}_error`} className={classnames(styles.error_message, { [styles.with_label]: label })}>
+          {error?.message as string}
+        </p>
       )}
     </label>
   )
