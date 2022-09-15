@@ -1,0 +1,23 @@
+{
+  "subscribe": {
+    "title": {
+      "1": "YOU KNOW YOUR",
+      "2": "DATA",
+      "3": "EXPLORE IT",
+      "4": "YOURSELF!"
+    },
+    "heading": "Start your subscription today!",
+    "labels": {
+      "first_name": "First Name*",
+      "last_name": "Last Name*",
+      "email": "Email*",
+      "mobile_phone_number": "Mobile phone Number*",
+      "company_name": "Company Name*",
+      "type": "Company Type*",
+      "help": "How can we help you?*",
+      "tool": "What is the tool used for reports?*",
+      "challenges": "How can we help overcome your reporting challenges?*"
+    },
+    "button": "Submit"
+  }
+}

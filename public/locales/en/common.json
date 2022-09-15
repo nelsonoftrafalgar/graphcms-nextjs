@@ -1,0 +1,12 @@
+{
+  "demo": {
+    "title": "Try Lexer Book Your Free Demo",
+    "button": "Get Started"
+  },
+  "select": {
+    "default": "Please select"
+  },
+  "accordion": {
+    "chevron_alt": "Chevron icon"
+  }
+}

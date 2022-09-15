@@ -1,5 +1,6 @@
+import { GetStaticProps, NextPage } from 'next'
+
 import Demo from 'sections/Demo'
-import { FC } from 'react'
 import { IHeading } from 'models/common'
 import { ITimelineItem } from 'models/aboutUs'
 import Organizations from 'sections/Organizations'
@@ -9,6 +10,7 @@ import TimeLine from 'sections/TimeLine'
 import { aboutUs } from 'api/queries/about-us'
 import { getHeadings } from 'utils/getHeadings'
 import { graphQLClient } from 'api/graphqlClient'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IProps {
   organizationsHeadings: IHeading[]
@@ -16,7 +18,7 @@ interface IProps {
   timelineItems: ITimelineItem[]
 }
 
-const AboutUs: FC<IProps> = ({ organizationsHeadings, timelineHeading, timelineItems }) => {
+const AboutUs: NextPage<IProps> = ({ organizationsHeadings, timelineHeading, timelineItems }) => {
   return (
     <main>
       <Organizations headings={organizationsHeadings} />
@@ -28,14 +30,15 @@ const AboutUs: FC<IProps> = ({ organizationsHeadings, timelineHeading, timelineI
 
 export default AboutUs
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const { headings, timelineItems } = await graphQLClient.request(aboutUs, { page: Pages.about_us })
   const [timelineHeading, organizationsHeadings] = getHeadings(headings)(Sections.timeline, Sections.organizations)
   return {
     props: {
       organizationsHeadings,
       timelineHeading,
-      timelineItems
+      timelineItems,
+      ...(await serverSideTranslations(locale as string, ['common', 'about_us']))
     }
   }
 }

@@ -1,7 +1,7 @@
+import { GetStaticProps, NextPage } from 'next'
 import { IPickerItem, IServiceItem } from 'models/service'
 
 import Demo from 'sections/Demo'
-import { FC } from 'react'
 import { IHeading } from 'models/common'
 import { Pages } from 'types/pages'
 import Picker from 'sections/Picker'
@@ -9,6 +9,7 @@ import { Sections } from 'types/sections'
 import Services from 'sections/Services'
 import { getHeadings } from 'utils/getHeadings'
 import { graphQLClient } from 'api/graphqlClient'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { service } from 'api/queries/service'
 
 interface IProps {
@@ -18,7 +19,7 @@ interface IProps {
   services: IServiceItem[]
 }
 
-const Service: FC<IProps> = ({ pickerHeading, servicesHeading, pickerItems, services }) => {
+const Service: NextPage<IProps> = ({ pickerHeading, servicesHeading, pickerItems, services }) => {
   return (
     <main>
       <Picker heading={pickerHeading} pickerItems={pickerItems} />
@@ -30,7 +31,7 @@ const Service: FC<IProps> = ({ pickerHeading, servicesHeading, pickerItems, serv
 
 export default Service
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const { headings, pickerItems, services } = await graphQLClient.request(service, { page: Pages.service })
   const [pickerHeading, servicesHeading] = getHeadings(headings)(Sections.picker, Sections.services)
   return {
@@ -38,7 +39,8 @@ export const getStaticProps = async () => {
       pickerHeading,
       servicesHeading,
       pickerItems,
-      services
+      services,
+      ...(await serverSideTranslations(locale as string, ['common', 'service']))
     }
   }
 }

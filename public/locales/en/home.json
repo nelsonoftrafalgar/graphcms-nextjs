@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "button": "Get a Free Demo",
+    "image_alt": "Hero image"
+  },
+  "decisions": {
+    "button": "Get Started for Free",
+    "title_bottom": "Start making Data-Driven Decisions with Lexer!"
+  }
+}

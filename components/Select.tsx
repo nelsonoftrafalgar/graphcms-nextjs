@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import selectStyles from 'styles/components/Select.module.scss'
 import styles from 'styles/components/Input.module.scss'
 import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'next-i18next'
 
 interface IProps {
   id: string
@@ -11,6 +12,8 @@ interface IProps {
 }
 
 const Select: FC<PropsWithChildren<IProps>> = ({ id, label, children }) => {
+  const { t } = useTranslation('common')
+
   const {
     register,
     formState: { errors }
@@ -26,7 +29,7 @@ const Select: FC<PropsWithChildren<IProps>> = ({ id, label, children }) => {
         aria-label={id}
       >
         <option selected disabled value="">
-          Please Select
+          {t('select.default')}
         </option>
         {children}
       </select>

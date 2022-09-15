@@ -2,8 +2,8 @@ import { IBenefitCard, IVisualisingCard } from 'models/features'
 
 import Benefits from 'sections/Benefits'
 import Demo from 'sections/Demo'
-import { FC } from 'react'
 import { IHeading } from 'models/common'
+import { NextPage } from 'next'
 import { Pages } from 'types/pages'
 import { Sections } from 'types/sections'
 import Visualising from 'sections/Visualising'
@@ -18,7 +18,7 @@ interface IProps {
   benefitCards: IBenefitCard[]
 }
 
-const Features: FC<IProps> = ({ visualisingHeading, benefitsHeading, visualisingCards, benefitCards }) => {
+const Features: NextPage<IProps> = ({ visualisingHeading, benefitsHeading, visualisingCards, benefitCards }) => {
   return (
     <main>
       <Visualising heading={visualisingHeading} visualisingCards={visualisingCards} />

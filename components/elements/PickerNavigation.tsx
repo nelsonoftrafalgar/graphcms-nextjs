@@ -4,6 +4,7 @@ import { IPickerItem } from 'models/service'
 import Image from 'next/image'
 import classnames from 'classnames'
 import styles from 'styles/sections/Picker.module.scss'
+import { useTranslation } from 'next-i18next'
 
 interface IProps {
   pickerIndex: number
@@ -20,6 +21,7 @@ const PickerNavigation: FC<IProps> = ({
   handleIncrementPickerIndex,
   setPickerIndex
 }) => {
+  const { t } = useTranslation('service')
   return (
     <div className={styles.navigation}>
       <div className={styles.dots}>
@@ -36,7 +38,7 @@ const PickerNavigation: FC<IProps> = ({
           <Image
             className={classnames(styles.arrow, { [styles.active]: pickerIndex > 0 })}
             src="/icons/arrow_left.svg"
-            alt="arrow_left"
+            alt={t('picker_navigation.arrow_left')}
             width={15}
             height={14}
           />
@@ -46,7 +48,7 @@ const PickerNavigation: FC<IProps> = ({
           <Image
             className={classnames(styles.arrow, { [styles.active]: pickerIndex < pickerItems.length - 1 })}
             src="/icons/arrow_right.svg"
-            alt="arrow_right"
+            alt={t('picker_navigation.arrow_right')}
             width={15}
             height={14}
           />
