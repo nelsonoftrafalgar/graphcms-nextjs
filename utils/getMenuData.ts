@@ -1,4 +1,5 @@
 import { ROUTES } from './routes'
+import { TFunction } from 'next-i18next'
 
 interface IMenuItem {
   href?: string
@@ -11,53 +12,53 @@ interface IMenuItem {
   }[]
 }
 
-export const menuData: IMenuItem[] = [
+const getMenuData = (t: TFunction): IMenuItem[] => [
   {
     href: ROUTES.home,
-    title: 'Home',
+    title: t('header.menu.home'),
     active: false
   },
   {
-    title: 'Product',
+    title: t('header.menu.product'),
     active: false,
     submenu: [
       {
         href: ROUTES.features,
-        title: 'Lexer',
+        title: t('header.menu.lexer'),
         active: false
       },
       {
         href: ROUTES.service,
-        title: 'Service',
+        title: t('header.menu.service'),
         active: false
       }
     ]
   },
   {
     href: ROUTES.pricing,
-    title: 'Pricing',
+    title: t('header.menu.pricing'),
     active: false
   },
   {
-    title: 'About',
+    title: t('header.menu.about'),
     active: false,
     submenu: [
       {
         href: ROUTES.about_us,
-        title: 'About Us',
+        title: t('header.menu.about_us'),
         active: false
       },
       {
         href: ROUTES.contact_us,
-        title: 'Contact Us',
+        title: t('header.menu.contact_us'),
         active: false
       }
     ]
   }
 ]
 
-export const activateMenuData = (menuData: IMenuItem[], currentHref: string) => {
-  return menuData.map((menuItem) => {
+export const activateMenuData = (t: TFunction, currentHref: string) => {
+  return getMenuData(t).map((menuItem) => {
     const { href, submenu } = menuItem
     if (href) {
       return {

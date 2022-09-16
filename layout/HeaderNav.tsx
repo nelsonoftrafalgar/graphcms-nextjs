@@ -3,9 +3,11 @@ import Link from 'next/link'
 import classnames from 'classnames'
 import styles from 'styles/layout/HeaderNav.module.scss'
 import { useMenuData } from 'hooks/useMenuData'
+import { useTranslation } from 'next-i18next'
 
 const HeaderNav = () => {
-  const menuData = useMenuData()
+  const { t } = useTranslation('common')
+  const menuData = useMenuData(t)
 
   return (
     <nav className={styles.nav}>
@@ -25,7 +27,7 @@ const HeaderNav = () => {
             <li key={title} className={classnames(styles.nav_item, { [styles.active]: active })}>
               {title}
               <div tabIndex={0} className={styles.icon_wrapper}>
-                <Image src="/icons/chevron.svg" priority alt="chevron" width={16} height={16} />
+                <Image src="/icons/chevron.svg" priority alt={t('header.chevron_alt')} width={16} height={16} />
               </div>
               <ul className={styles.subnav_list}>
                 {submenu?.map(({ href, title, active }) => {

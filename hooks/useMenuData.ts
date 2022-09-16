@@ -1,10 +1,10 @@
-import { activateMenuData, menuData } from 'utils/menuData'
-
+import { TFunction } from 'next-i18next'
+import { activateMenuData } from 'utils/getMenuData'
 import { useMemo } from 'react'
 import { useRouter } from 'next/router'
 
-export const useMenuData = () => {
+export const useMenuData = (t: TFunction) => {
   const { pathname } = useRouter()
 
-  return useMemo(() => activateMenuData(menuData, pathname), [pathname])
+  return useMemo(() => activateMenuData(t, pathname), [pathname, t])
 }

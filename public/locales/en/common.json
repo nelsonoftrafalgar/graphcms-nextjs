@@ -1,4 +1,40 @@
 {
+  "header": {
+    "logo_alt": "Logo image",
+    "chevron_alt": "Chevron icon",
+    "hamburger_alt": "Open mobile nav icon",
+    "close_alt": "CLose mobile nav icon",
+    "button": "Buy Now",
+    "menu": {
+      "home": "Home",
+      "about_us": "About Us",
+      "about": "About",
+      "product": "Product",
+      "lexer": "Lexer",
+      "service": "Service",
+      "pricing": "Pricing",
+      "contact_us": "Contact Us"
+    }
+  },
+  "footer": {
+    "logo_alt": "Logo image",
+    "twitter": "Twitter icon",
+    "linkedin": "Linkedin icon",
+    "copyright": "Copyright © 2022 DataLexing, Inc.",
+    "terms_and_conditions": "Terms & Conditions",
+    "privacy": "Privacy",
+    "menu": {
+      "data_lexing": "DataLexing",
+      "home": "Home",
+      "about_us": "About Us",
+      "product": "Product",
+      "lexer": "Lexer",
+      "service": "Service",
+      "pricing": "Pricing",
+      "support": "Support",
+      "contact_us": "Contact Us"
+    }
+  },
   "demo": {
     "title": "Try Lexer Book Your Free Demo",
     "button": "Get Started"
