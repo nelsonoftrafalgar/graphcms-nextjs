@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       topicSelect,
-      ...(await serverSideTranslations(locale as string, ['common', 'contact_us']))
+      ...(await serverSideTranslations(locale as string, ['common', 'contact_us', 'validation']))
     }
   }
 }

@@ -1,15 +1,13 @@
 {
-  "contact": {
-    "intro": "Get in touch",
-    "content": "Please get in touch and our expert support team will answer all your questions",
-    "form_heading": "Always happy to hear from you!",
-    "placeholders": {
-      "first_name": "First Name*",
-      "last_name": "Last Name*",
-      "email": "Email*",
-      "phone_number": "Phone Number*",
-      "company_name": "Company Name*"
-    },
-    "button": "Submit"
-  }
+  "intro": "Get in touch",
+  "content": "Please get in touch and our expert support team will answer all your questions",
+  "form_heading": "Always happy to hear from you!",
+  "placeholders": {
+    "first_name": "First Name*",
+    "last_name": "Last Name*",
+    "email": "Email*",
+    "phone_number": "Phone Number*",
+    "company_name": "Company Name*"
+  },
+  "button": "Submit"
 }

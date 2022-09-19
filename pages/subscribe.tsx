@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       typeSelect,
       helpSelect,
       toolSelect,
-      ...(await serverSideTranslations(locale as string, ['common', 'subscribe']))
+      ...(await serverSideTranslations(locale as string, ['common', 'validation', 'subscribe']))
     }
   }
 }
