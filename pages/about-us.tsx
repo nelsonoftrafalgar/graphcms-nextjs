@@ -39,6 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       timelineHeading,
       timelineItems,
       ...(await serverSideTranslations(locale as string, ['common', 'about_us']))
-    }
+    },
+    revalidate: 10
   }
 }

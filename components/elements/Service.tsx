@@ -8,7 +8,7 @@ type TProps = IServiceItem
 const Service: FC<TProps> = ({ content, icon, iconAlt, iconHeight, iconWidth }) => {
   return (
     <div className={styles.service}>
-      <Image src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
+      <Image priority src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
       <p>{content}</p>
     </div>
   )

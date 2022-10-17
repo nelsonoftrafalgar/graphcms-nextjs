@@ -26,6 +26,7 @@ const Organizations: FC<IProps> = ({ headings }) => {
               alt={t('organizations.image_alt')}
               layout="fill"
               objectFit="contain"
+              priority
             />
           </div>
         </div>

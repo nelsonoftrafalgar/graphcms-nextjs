@@ -9,7 +9,7 @@ const Feature: FC<TProps> = ({ icon, iconAlt, iconHeight, iconWidth, title, cont
   return (
     <div className={styles.feature}>
       <div className={styles.icon}>
-        <Image src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
+        <Image priority src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
       </div>
       <div>
         <h3 className={styles.title}>{title}</h3>

@@ -22,10 +22,10 @@ const Footer = () => {
           </Link>
           <div className={styles.social_logo_container}>
             <div className={styles.social_logo}>
-              <Image src="/icons/twitter.svg" alt={t('footer.twitter')} width={20} height={20} />
+              <Image priority src="/icons/twitter.svg" alt={t('footer.twitter')} width={20} height={20} />
             </div>
             <div className={styles.social_logo}>
-              <Image src="/icons/linkedin.svg" alt={t('footer.linkedin')} width={20} height={20} />
+              <Image priority src="/icons/linkedin.svg" alt={t('footer.linkedin')} width={20} height={20} />
             </div>
           </div>
         </div>

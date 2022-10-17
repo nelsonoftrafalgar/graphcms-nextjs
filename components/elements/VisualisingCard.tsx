@@ -15,7 +15,7 @@ const CardImage: FC<Pick<IVisualisingCard, 'image' | 'imageAlt'>> = ({ image, im
     <Link href={ROUTES.subscribe}>
       <a>
         <div className={styles.image}>
-          <Image src={image.url} alt={imageAlt} layout="fill" objectFit="contain" />
+          <Image priority src={image.url} alt={imageAlt} layout="fill" objectFit="contain" />
         </div>
       </a>
     </Link>

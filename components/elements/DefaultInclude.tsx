@@ -8,7 +8,7 @@ type TProps = IDefaultInclude
 const DefaultInclude: FC<TProps> = ({ content, icon, iconAlt, iconHeight, iconWidth }) => {
   return (
     <div className={styles.icon}>
-      <Image src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
+      <Image priority src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
       <span>{content}</span>
     </div>
   )

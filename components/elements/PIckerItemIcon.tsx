@@ -9,7 +9,7 @@ const PIckerItemIcon: FC<TProps> = ({ name, icon, iconAlt, iconHeight, iconWidth
   return (
     <div className={styles.icon}>
       <div className={styles.icon_wrapper}>
-        <Image src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
+        <Image priority src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
       </div>
       <span>{name}</span>
     </div>

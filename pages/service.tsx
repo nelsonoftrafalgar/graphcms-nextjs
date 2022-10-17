@@ -41,6 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       pickerItems,
       services,
       ...(await serverSideTranslations(locale as string, ['common', 'service']))
-    }
+    },
+    revalidate: 10
   }
 }

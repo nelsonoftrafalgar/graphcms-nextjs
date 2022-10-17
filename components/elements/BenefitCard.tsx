@@ -8,7 +8,7 @@ type TProps = IBenefitCard
 const BenefitCard: FC<TProps> = ({ title, image, imageAlt, imageHeight, imageWidth }) => {
   return (
     <div className={styles.benefit}>
-      <Image src={image.url} alt={imageAlt} width={imageWidth} height={imageHeight} />
+      <Image priority src={image.url} alt={imageAlt} width={imageWidth} height={imageHeight} />
       <h3 className={styles.name}>{title}</h3>
     </div>
   )

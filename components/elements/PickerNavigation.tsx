@@ -36,6 +36,7 @@ const PickerNavigation: FC<IProps> = ({
       <div className={styles.arrows}>
         <button onClick={handleDecrementPickerIndex}>
           <Image
+            priority
             className={classnames(styles.arrow, { [styles.active]: pickerIndex > 0 })}
             src="/icons/arrow_left.svg"
             alt={t('picker_navigation.arrow_left')}
@@ -46,6 +47,7 @@ const PickerNavigation: FC<IProps> = ({
         <div className={styles.point} />
         <button onClick={handleIncrementPickerIndex}>
           <Image
+            priority
             className={classnames(styles.arrow, { [styles.active]: pickerIndex < pickerItems.length - 1 })}
             src="/icons/arrow_right.svg"
             alt={t('picker_navigation.arrow_right')}

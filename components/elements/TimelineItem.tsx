@@ -20,7 +20,7 @@ const Point = () => (
 
 const TimelineImage: FC<Pick<ITimelineItem, 'image' | 'imageAlt'>> = ({ image, imageAlt }) => (
   <div className={styles.image}>
-    <Image src={image.url} alt={imageAlt} layout="fill" objectFit="contain" />
+    <Image priority src={image.url} alt={imageAlt} layout="fill" objectFit="contain" />
   </div>
 )
 

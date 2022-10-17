@@ -43,6 +43,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       decisionCards,
       features,
       ...(await serverSideTranslations(locale as string, ['common', 'home']))
-    }
+    },
+    revalidate: 10
   }
 }

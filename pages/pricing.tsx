@@ -43,6 +43,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       defaultIncludes,
       faqs,
       ...(await serverSideTranslations(locale as string, ['common', 'pricing']))
-    }
+    },
+    revalidate: 10
   }
 }
