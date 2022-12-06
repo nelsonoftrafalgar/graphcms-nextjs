@@ -16,7 +16,7 @@ const Footer = () => {
           <Link href={ROUTES.home}>
             <a>
               <div className={styles.logo_container}>
-                <Image src="/images/logo.webp" alt={t('footer.logo_alt')} priority layout="fill" objectFit="contain" />
+                <Image src="/images/logo.jpg" alt={t('footer.logo_alt')} priority layout="fill" objectFit="contain" />
               </div>
             </a>
           </Link>

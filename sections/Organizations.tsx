@@ -22,7 +22,7 @@ const Organizations: FC<IProps> = ({ headings }) => {
         <div className={styles.image_wrapper}>
           <div className={styles.image}>
             <Image
-              src="/images/organizations.webp"
+              src="/images/organizations.jpg"
               alt={t('organizations.image_alt')}
               layout="fill"
               objectFit="contain"

@@ -10,7 +10,7 @@
       "about_us": "About Us",
       "about": "About",
       "product": "Product",
-      "lexer": "Lexer",
+      "lexer": "Lorem",
       "service": "Service",
       "pricing": "Pricing",
       "contact_us": "Contact Us"
@@ -20,15 +20,15 @@
     "logo_alt": "Logo image",
     "twitter": "Twitter icon",
     "linkedin": "Linkedin icon",
-    "copyright": "Copyright © 2022 DataLexing, Inc.",
+    "copyright": "Copyright © 2022 LoremData, Inc.",
     "terms_and_conditions": "Terms & Conditions",
     "privacy": "Privacy",
     "menu": {
-      "data_lexing": "DataLexing",
+      "data_lexing": "LoremData",
       "home": "Home",
       "about_us": "About Us",
       "product": "Product",
-      "lexer": "Lexer",
+      "lexer": "Lorem",
       "service": "Service",
       "pricing": "Pricing",
       "support": "Support",
@@ -36,7 +36,7 @@
     }
   },
   "demo": {
-    "title": "Try Lexer Book Your Free Demo",
+    "title": "Try Lorem. Book Your Free Demo",
     "button": "Get Started"
   },
   "select": {

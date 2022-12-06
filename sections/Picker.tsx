@@ -4,7 +4,7 @@ import ButtonLink from 'components/ButtonLink'
 import Heading from 'components/Heading'
 import { IHeading } from 'models/common'
 import { IPickerItem } from 'models/service'
-import PIckerItemIcon from 'components/elements/PIckerItemIcon'
+import PickerItemIcon from 'components/elements/PickerItemIcon'
 import PickerList from 'components/elements/PickerList'
 import PickerNavigation from 'components/elements/PickerNavigation'
 import { ROUTES } from 'utils/routes'
@@ -35,7 +35,7 @@ const Picker: FC<IProps> = ({ heading, pickerItems }) => {
             <p className={styles.content}>{selectedPickerItem?.content}</p>
             <div className={styles.icons}>
               {selectedPickerItem?.pickerItemIcons.map((pickerItemIcon) => (
-                <PIckerItemIcon key={pickerItemIcon.id} {...pickerItemIcon} />
+                <PickerItemIcon key={pickerItemIcon.id} {...pickerItemIcon} />
               ))}
             </div>
             <ButtonLink href={ROUTES.subscribe} modifiers={['large', 'filled']}>

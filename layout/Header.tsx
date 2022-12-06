@@ -20,7 +20,7 @@ const Header: FC<IProps> = ({ scroll }) => {
       <Link href={ROUTES.home}>
         <a>
           <div className={styles.logo_container}>
-            <Image src="/images/logo.webp" alt={t('header.logo_alt')} priority layout="fill" objectFit="contain" />
+            <Image src="/images/logo.jpg" alt={t('header.logo_alt')} priority layout="fill" objectFit="contain" />
           </div>
         </a>
       </Link>

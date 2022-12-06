@@ -5,7 +5,7 @@ import styles from 'styles/sections/Picker.module.scss'
 
 type TProps = IPickerItemIcon
 
-const PIckerItemIcon: FC<TProps> = ({ name, icon, iconAlt, iconHeight, iconWidth }) => {
+const PickerItemIcon: FC<TProps> = ({ name, icon, iconAlt, iconHeight, iconWidth }) => {
   return (
     <div className={styles.icon}>
       <div className={styles.icon_wrapper}>
@@ -16,4 +16,4 @@ const PIckerItemIcon: FC<TProps> = ({ name, icon, iconAlt, iconHeight, iconWidth
   )
 }
 
-export default PIckerItemIcon
+export default PickerItemIcon
