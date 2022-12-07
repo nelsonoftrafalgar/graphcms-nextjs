@@ -4,7 +4,7 @@ import ButtonLink from 'components/ButtonLink'
 import Heading from 'components/Heading'
 import { IHeading } from 'models/common'
 import { IPickerItem } from 'models/service'
-import PickerItemIcon from 'components/elements/PickerItemIcon'
+import Image from 'next/image'
 import PickerList from 'components/elements/PickerList'
 import PickerNavigation from 'components/elements/PickerNavigation'
 import { ROUTES } from 'utils/routes'
@@ -34,8 +34,13 @@ const Picker: FC<IProps> = ({ heading, pickerItems }) => {
             <h2 className={styles.title}>{selectedPickerItem?.title}</h2>
             <p className={styles.content}>{selectedPickerItem?.content}</p>
             <div className={styles.icons}>
-              {selectedPickerItem?.pickerItemIcons.map((pickerItemIcon) => (
-                <PickerItemIcon key={pickerItemIcon.id} {...pickerItemIcon} />
+              {selectedPickerItem?.pickerItemIcons.map(({ name, icon, iconAlt, iconHeight, iconWidth, id }) => (
+                <div key={id} className={styles.icon}>
+                  <div className={styles.icon_wrapper}>
+                    <Image priority src={icon.url} alt={iconAlt} width={iconWidth} height={iconHeight} />
+                  </div>
+                  <span>{name}</span>
+                </div>
               ))}
             </div>
             <ButtonLink href={ROUTES.subscribe} modifiers={['large', 'filled']}>
